@@ -1,0 +1,141 @@
+.header {
+    width: 100%;
+
+    &-discount {
+        background-color: $black_color;
+        color: $white_color;
+
+        &__inner {
+            padding: .5625rem 0;
+
+            @include display(flex, space-between, center)
+        }
+
+        &__text {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+
+            @include sato(normal, 1rem);
+
+            a {
+                color: $white_color;
+
+                @include sato(600, 1rem);
+
+                &:hover {
+                    color: $sogray_color;
+                }
+
+                &:active {
+                    color: $gray_color;
+                }
+
+            }
+        }
+
+        &__button {
+            display: block;
+
+            margin-left: auto;
+            background-color: unset;
+            border: unset;
+            color: $white_color;
+
+            svg {
+                height: .875rem;
+                width: .875rem;
+                @include display(flex, center, center)
+            }
+
+            &:hover {
+                color: $gray_color;
+            }
+
+            &:active {
+                color: $black_color;
+            }
+        }
+
+
+    }
+
+
+
+    &-menu {
+        width: 100%;
+        color: $white_color;
+
+        &-inner {
+            padding: 1.5rem 0;
+        }
+
+
+        &-bar {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+
+            &__icon {
+                max-width: 10rem;
+                max-height: 1.5rem;
+            }
+
+            &-list {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+
+                &__item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: .25rem;
+
+                    color: $black_color;
+                    text-decoration: unset;
+
+                    &_a {
+                        text-decoration: unset;
+
+                        color: $black_color;
+                        @include sato(normal, 1rem);
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+
+                        &:active{
+                            color: $gray_color;
+                        }
+                    }
+                }
+            }
+
+            &__search{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: 36.0625rem;
+                max-height: 3rem;
+                padding: .75rem;
+                padding-left: 3.25rem;
+                background-color: $lightgray_color;
+                border-radius: 3.875rem;
+                border: 2px solid $lightgray_color;
+                border: unset;
+                background-image: url(/public/searchIco.svg);
+                background-repeat: no-repeat;
+                background-position: 1rem center;
+                background-size: 1.3125rem;
+
+                @include sato(bold,1rem);
+
+                &:hover{
+                    border-color: red;
+                }
+            }
+
+        }
+    }
+}

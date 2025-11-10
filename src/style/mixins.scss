@@ -1,0 +1,23 @@
+@mixin sato($weight: normal, $size: 1rem){
+    font-family: 'Satoshi',sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin display(
+  $display: flex,
+  $direction: row,
+  $justify: null,
+  $align: null
+) {
+  display: $display;
+  flex-direction: $direction;
+  
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  
+  @if $align != null {
+    align-items: $align;
+  }
+}
