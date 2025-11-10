@@ -76,9 +76,22 @@
             align-items: center;
             gap: 2.5rem;
 
+            &-container{
+                display: flex;
+            }
+
             &__icon {
-                max-width: 10rem;
-                max-height: 1.5rem;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                color: $black_color;
+                @include int(bold,2rem);
+                filter: drop-shadow(0 .25rem .25rem $black_color);
+                text-align: center;
+
+                text{
+                    text-align: center;
+                }
             }
 
             &-list {
@@ -97,9 +110,9 @@
 
                     &_a {
                         text-decoration: unset;
-
+                        white-space: nowrap;
                         color: $black_color;
-                        @include sato(normal, 1rem);
+                        @include sato(bold, 1rem);
 
                         &:hover{
                             text-decoration: underline;
@@ -113,9 +126,7 @@
             }
 
             &__search{
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                width: 100%;
                 max-width: 36.0625rem;
                 max-height: 3rem;
                 padding: .75rem;
@@ -129,10 +140,36 @@
                 background-position: 1rem center;
                 background-size: 1.3125rem;
 
+                @include display(flex,center,center);
                 @include sato(bold,1rem);
 
                 &:hover{
                     border-color: red;
+                }
+            }
+
+            &-buttons{
+                display: flex;
+                align-items: center;
+                gap: .875rem;
+                &__buy{
+                    display: block;
+                    background-color: unset;
+                    border: unset;
+                    padding: 0;
+
+                    &__svg{
+                        display: block;
+                    }
+                }
+                &__profile{
+                    background-color: unset;
+                    border: unset;
+                    padding: 0;
+
+                    &__svg{
+                        display: block;
+                    }
                 }
             }
 
