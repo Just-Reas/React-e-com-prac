@@ -4,8 +4,8 @@
     font-size: $size;
 }
 
-@mixin int($weight: normal, $size: 1rem){
-    font-family: 'Integral CF',sans-serif;
+@mixin hel($weight: normal, $size: 1rem){
+    font-family: 'HelveticaNeueLT W1G 95 Blk',sans-serif;
     font-weight: $weight;
     font-size: $size;
 }
