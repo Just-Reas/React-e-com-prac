@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function App() {
   return (
     <>
@@ -33,7 +31,9 @@ function App() {
         <div className="container">
           <div className="header-menu-inner">
             <div className="header-menu-bar">
-              <a className="header-menu__icon" href="#">SHOP.CO</a>
+              <a className="header-menu__icon" href="/">
+                SHOP.CO
+              </a>
 
               <ul className="header-menu-list">
                 <li className="header-menu-list__item">
@@ -43,7 +43,7 @@ function App() {
                     </a>
                   </div>
 
-                  <div className="header-menu-item__button">
+                  <button className="header-menu__button">
                     <svg
                       width="12"
                       height="7"
@@ -56,7 +56,25 @@ function App() {
                         fill="black"
                       />
                     </svg>
-                  </div>
+                  </button>
+
+                  <ul className="header-menu-list-shop">
+                    <li className="header-menu-list-shop__item">
+                      <a href="#">Men</a>
+                    </li>
+                    <li className="header-menu-list-shop__item">
+                      <a href="#">Women</a>
+                    </li>
+                    <li className="header-menu-list-shop__item">
+                      <a href="#">Outerwear</a>
+                    </li>
+                    <li className="header-menu-list-shop__item">
+                      <a href="#">Outfits</a>
+                    </li>
+                    <li className="header-menu-list-shop__item">
+                      <a href="#">Shoes</a>
+                    </li>
+                  </ul>
                 </li>
                 <li className="header-menu-list__item">
                   <a className="header-menu-list__item_a" href="#">
@@ -84,10 +102,14 @@ function App() {
                 ></input>
                 <ul className="header-menu-search-results">
                   <li className="header-menu-search-results-item">
-                    <div className="header-menu-search-results-item__title">First item</div>
+                    <div className="header-menu-search-results-item__title">
+                      First item
+                    </div>
                   </li>
                   <li className="header-menu-search-results-item">
-                    <div className="header-menu-search-results-item__title">Second item</div>
+                    <div className="header-menu-search-results-item__title">
+                      Second item
+                    </div>
                   </li>
                 </ul>
               </div>
