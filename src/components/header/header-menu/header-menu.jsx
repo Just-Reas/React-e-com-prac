@@ -4,23 +4,22 @@ import HeaderMenuIcon from "./header-menu-icon/header-menu-icon";
 import HeaderMenuList from "./header-menu-list/header-menu-list";
 import HeaderMenuSearch from "./header-menu-search/header-menu-search";
 
-import styles from './header-menu.module.scss';
+import styles from "./header-menu.module.scss";
 
 const HeaderMenu = () => {
   return (
     <div className={styles.headerMenu}>
       <div className="container">
         <div className={styles.headerInner} id="header-inner">
-            
-            <HeaderMenuBurger/>
+          <HeaderMenuBurger />
 
-            <HeaderMenuIcon/>
+          <HeaderMenuIcon />
 
-            <HeaderMenuList/>
+          <HeaderMenuList />
 
-            <HeaderMenuSearch/>
+          <HeaderMenuSearch />
 
-            <HeaderMenuButtons/>
+          <HeaderMenuButtons />
         </div>
       </div>
     </div>

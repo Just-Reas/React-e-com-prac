@@ -52,9 +52,15 @@ export const headerBurgerScript = () => {
     if (buttonFlag.current) {
       menuButton.style.transform = "rotateZ(0deg) translateY(0.3125rem)";
       shopMenu.style.display = "flex";
+      setTimeout(() => {
+        shopMenu.style.transform = "translateY(0)";
+      }, 10);
     } else {
+      shopMenu.style.transform = "translateY(-0.9375rem)";
       menuButton.style.transform = "rotateZ(270deg)";
-      shopMenu.style.display = "none";
+      setTimeout(() => {
+        shopMenu.style.display = "none";
+      }, 300);
     }
   });
 

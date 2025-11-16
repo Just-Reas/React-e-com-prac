@@ -6,8 +6,6 @@ export const headerMenuScript = () => {
   const isMd = useMediaQuery({ maxWidth: 768 });
   const isSm = useMediaQuery({ maxWidth: 576 });
 
-
-
   useEffect(() => {
     const search = document.getElementById("search");
     const searchMain = document.getElementById("search-main");
@@ -17,7 +15,7 @@ export const headerMenuScript = () => {
     const profileButton = document.getElementById("profile-button");
     const buyButton = document.getElementById("buy-button");
     const headerIcon = document.getElementById("header-icon");
-    const headerInner = document.getElementById("header-inner")
+    const headerInner = document.getElementById("header-inner");
     // const burgerWindow = document.getElementById("burger-window");
     // const burgerMain = document.getElementById("burger-main");
 
@@ -25,7 +23,7 @@ export const headerMenuScript = () => {
       if (!isMd) {
         if (!isLg) {
           search.style.display = "unset";
-          searchMain.style.display="unset"
+          searchMain.style.display = "unset";
           list.style.display = "flex";
           discount.style.display = "none";
           searchButton.style.display = "none";
@@ -33,10 +31,10 @@ export const headerMenuScript = () => {
         } else {
           // burgerMain.style.transform ="rotateZ(0deg)"
           // burgerWindow.style.display = "none";
-          profileButton.style.display="flex"
-          buyButton.style.display="flex"
-          headerIcon.style.display="flex"
-          discount.style.display="none"
+          profileButton.style.display = "flex";
+          buyButton.style.display = "flex";
+          headerIcon.style.display = "flex";
+          discount.style.display = "none";
           searchButton.style.display = "flex";
           search.style.display = "none";
           searchMain.style.maxWidth = "unset";
@@ -44,22 +42,22 @@ export const headerMenuScript = () => {
           console.log(`2`);
         }
       } else {
-        searchButton.style.display="flex"
-        discount.style.display="none"
+        searchButton.style.display = "flex";
+        discount.style.display = "none";
         list.style.display = "none";
         search.style.display = "none";
         console.log(`3`);
       }
-    }else{
-      headerInner.style.rowGap = "0"
-      search.style.display="none"
-      searchButton.style.display="flex"
-      discount.style.display="none"
+    } else {
+      headerInner.style.rowGap = "0";
+      search.style.display = "none";
+      searchButton.style.display = "flex";
+      discount.style.display = "none";
 
-      profileButton.style.display="flex"
-          buyButton.style.display="flex"
-          headerIcon.style.display="flex"
-      console.log('4')
+      profileButton.style.display = "flex";
+      buyButton.style.display = "flex";
+      headerIcon.style.display = "flex";
+      console.log("4");
     }
   }, [isLg, isMd, isSm]);
 
@@ -72,31 +70,31 @@ export const headerMenuScript = () => {
     const buyButton = document.getElementById("buy-button");
     const profileButton = document.getElementById("profile-button");
     const headerIcon = document.getElementById("header-icon");
-    const headerInner = document.getElementById("header-inner")
+    const headerInner = document.getElementById("header-inner");
 
-    if (!isSm){
+    if (!isSm) {
       if (!isMd) {
-      searchMain.style.display = "unset";
-      search.style.display = "unset";
-      list.style.display = "none";
-      searchButton.style.display = "none";
-      discount.style.display = "flex";
+        searchMain.style.display = "unset";
+        search.style.display = "unset";
+        list.style.display = "none";
+        searchButton.style.display = "none";
+        discount.style.display = "flex";
+      } else {
+        searchMain.style.display = "unset";
+        search.style.display = "unset";
+        list.style.display = "none";
+        searchButton.style.display = "none";
+        discount.style.display = "flex";
+        buyButton.style.display = "none";
+        profileButton.style.display = "none";
+        headerIcon.style.display = "none";
+      }
     } else {
-      searchMain.style.display = "unset";
-      search.style.display = "unset";
-      list.style.display = "none";
+      headerInner.style.rowGap = "1rem";
+      search.style.display = "flex";
+      searchMain.style.display = "flex";
       searchButton.style.display = "none";
       discount.style.display = "flex";
-      buyButton.style.display = "none";
-      profileButton.style.display = "none";
-      headerIcon.style.display = "none";
-    }
-    }else{
-      headerInner.style.rowGap = "1rem"
-      search.style.display="flex"
-      searchMain.style.display="flex"
-      searchButton.style.display="none"
-      discount.style.display="flex"
     }
   });
 
@@ -110,27 +108,29 @@ export const headerMenuScript = () => {
     const profileButton = document.getElementById("profile-button");
     const headerIcon = document.getElementById("header-icon");
 
-    if (!isSm){
+    if (!isSm) {
       if (!isMd) {
-      discount.style.display = "none";
-      searchButton.style.display = "flex";
-      list.style.display = "flex";
-      search.style.display = "none";
+        discount.style.display = "none";
+        searchButton.style.display = "flex";
+        list.style.display = "flex";
+        search.style.display = "none";
+      } else {
+        discount.style.display = "none";
+        searchButton.style.display = "flex";
+        list.style.display = "none";
+        search.style.display = "none";
+        buyButton.style.display = "flex";
+        profileButton.style.display = "flex";
+        headerIcon.style.display = "flex";
+      }
     } else {
-      discount.style.display = "none";
-      searchButton.style.display = "flex";
-      list.style.display = "none";
+      setTimeout(() => {
+        headerInner.style.rowGap = "0";
+      }, 10);
       search.style.display = "none";
-      buyButton.style.display = "flex";
-      profileButton.style.display = "flex";
-      headerIcon.style.display = "flex";
-    }
-    }else{
-      setTimeout(() =>{headerInner.style.rowGap = "0"},10)
-      search.style.display="none"
-      searchMain.style.display="none"
-      searchButton.style.display="flex"
-      discount.style.display="none"
+      searchMain.style.display = "none";
+      searchButton.style.display = "flex";
+      discount.style.display = "none";
     }
   });
 
