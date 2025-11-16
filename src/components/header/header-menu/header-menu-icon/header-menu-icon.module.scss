@@ -1,0 +1,21 @@
+@import '../../../../style/mixins.scss';
+@import '../../../../style/variables.scss';
+
+.headerMenuIcon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 10rem;
+  color: $black_color;
+  font-family: Impact, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: unset;
+  letter-spacing: 0.5rem;
+  @media screen and (max-width: 576px){
+        order: 1;
+        font-size: 1.5rem;
+        letter-spacing: 0.1rem;
+        max-width: 90px;
+      }
+}

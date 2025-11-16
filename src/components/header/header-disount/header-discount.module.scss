@@ -1,0 +1,68 @@
+@import "../../../style/mixins.scss";
+@import "../../../style/variables.scss";
+
+.discount {
+  background-color: $black_color;
+  color: $white_color;
+
+}
+
+.discountInner {
+  padding: 0.5625rem 0;
+
+  @include display(flex, space-between, center);
+}
+
+.discountText {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+
+  @include sato(normal, 1rem);
+
+  a {
+    color: $white_color;
+
+    @include sato(600, 1rem);
+
+    &:hover {
+      color: $sogray_color;
+    }
+
+    &:active {
+      color: $gray_color;
+    }
+    @media screen and (max-width:576px){
+      width: 100%;
+    @include sato(normal, .75rem);
+  }
+  }
+
+  @media screen and (max-width:576px){
+    @include sato(normal, .75rem);
+  }
+}
+
+.discountButton {
+  display: block;
+
+  margin-left: auto;
+  background-color: unset;
+  border: unset;
+  color: $white_color;
+
+  svg {
+    height: 0.875rem;
+    width: 0.875rem;
+    @include display(flex, center, center);
+  }
+
+  &:hover {
+    color: $gray_color;
+  }
+
+  &:active {
+    color: $black_color;
+  }
+}
+

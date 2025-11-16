@@ -1,0 +1,106 @@
+@import "../../../../style/mixins.scss";
+@import "../../../../style/variables.scss";
+
+.menuButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+
+  @media screen and (max-width: 768px){
+    margin-left: auto;
+  }
+  @media screen and (max-width: 576px){
+    order: 3;
+    justify-content: space-between;
+  }
+}
+
+.menuBuy,
+.menuProfile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: $darkgray_color;
+  }
+
+  &:active {
+    color: $gray_color;
+  }
+  @media screen and (max-width:576px){
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.buttonSearch {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: $darkgray_color;
+  }
+
+  &:active {
+    color: $gray_color;
+  }
+
+  @media screen and (max-width:992px){
+    display: flex;
+  }
+  @media screen and (max-width:576px){
+    width: 25px;
+    height: 25px;
+  }
+}
+.discountButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: $darkgray_color;
+  }
+
+  &:active {
+    color: $gray_color;
+  }
+  @media screen and (max-width:576px){
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.buttonSearchSvg,
+.discountButtonSvg,
+.menuBuySvg,
+.menuProfileSvg {
+  display: block;
+  margin: auto;
+}
+
+.discountButtonSvg {
+  width: 17px;
+  height: 17px;
+}
