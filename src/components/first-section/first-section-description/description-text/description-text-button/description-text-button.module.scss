@@ -1,0 +1,21 @@
+@import "../../../../../style/mixins.scss";
+@import "../../../../../style/variables.scss";
+
+.buttonMain{
+    background-color: $black_color;
+    color: $white_color;
+    padding: 1rem 3.375rem;
+    width: fit-content;
+    border-radius: 3.875rem;
+    border: 2px solid $black_color;
+    @include sato(normal,1rem);
+    &:hover{
+        border: 2px solid #F2F0F1;
+        color: $lightgray_color;
+    }
+    &:active{
+        border: 2px solid #F2F0F1;
+        color: $darkgray_color;
+    }
+
+}

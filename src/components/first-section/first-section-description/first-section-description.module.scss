@@ -1,0 +1,8 @@
+@import "../../../style/mixins.scss";
+@import "../../../style/variables.scss";
+
+.headerInner{
+    display: flex;
+    flex-direction: column;
+    max-width: 37.25rem;
+}

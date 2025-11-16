@@ -2,6 +2,8 @@
 @import './variables.scss';
 @import './mixins.scss';
 
+@import '../components/first-section/first-section-description/description-text/description-text-button/description-text-button.module.scss';
+
 .container {
   max-width: 77.5rem;
   margin: 0 auto;
@@ -98,6 +100,14 @@
     font-family: 'HelveticaNeueLT W1G 95 Blk';
     src: url('./fonts/HelveticaNeueLTW1G-Blk.woff2') format('woff2');
     font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Integral CF';
+    src: url('./fonts/IntegralCF-Bold.woff2') format('woff2');
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
 }

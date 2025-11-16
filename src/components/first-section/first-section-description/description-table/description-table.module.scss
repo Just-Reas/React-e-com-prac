@@ -1,0 +1,33 @@
+@import "../../../../style/mixins.scss";
+@import "../../../../style/variables.scss";
+
+.descriptionMenu{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 4.25rem;
+}
+
+.descriptionItem{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: $black_color;
+}
+
+.descriptionItemHeader{
+    @include sato(bold,2.5rem);
+}
+
+.descriptionItemDesc{
+    @include sato(normal,1rem);
+    opacity: 0.6;
+}
+
+.descriptionItemLine{
+    width: .0625rem;
+    height: 4.625rem;
+    background-color: $black_color;
+    opacity: 0.2;
+}
