@@ -2,31 +2,28 @@
 @import "../../../../style/variables.scss";
 
 .menuButtons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.875rem;
+  @include display(flex, null, center, center);
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-left: auto;
   }
-  @media screen and (max-width: 576px){
+  @media screen and (max-width: 576px) {
     order: 3;
-    justify-content: space-between;
+    @include display(null, null, space-between, null);
   }
 }
 
 .menuBuy,
 .menuProfile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
+
+  @include display(flex, null, center, center);
 
   &:hover {
     color: $darkgray_color;
@@ -35,22 +32,21 @@
   &:active {
     color: $gray_color;
   }
-  @media screen and (max-width:576px){
+  @media screen and (max-width: 576px) {
     width: 25px;
     height: 25px;
   }
 }
 
 .buttonSearch {
-  display: none;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
+
+  @include display(none, null, center, center);
 
   &:hover {
     color: $darkgray_color;
@@ -60,25 +56,22 @@
     color: $gray_color;
   }
 
-  @media screen and (max-width:992px){
+  @media screen and (max-width: 992px) {
     display: flex;
   }
-  @media screen and (max-width:576px){
+  @media screen and (max-width: 576px) {
     width: 25px;
     height: 25px;
   }
 }
 .discountButton {
-  display: none;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
-
+  @include display(none, null, center, center);
   &:hover {
     color: $darkgray_color;
   }
@@ -86,7 +79,7 @@
   &:active {
     color: $gray_color;
   }
-  @media screen and (max-width:576px){
+  @media screen and (max-width: 576px) {
     width: 25px;
     height: 25px;
   }
@@ -98,6 +91,7 @@
 .menuProfileSvg {
   display: block;
   margin: auto;
+  @include display(block);
 }
 
 .discountButtonSvg {

@@ -7,13 +7,13 @@
   background-color: unset;
   border: unset;
   transition: all 0.3s ease-in-out;
-
+  @include display(none);
   @media screen and (max-width: 768px) {
-    display: flex;
+    @include display(flex);
   }
   @media screen and (max-width: 576px) {
     order: 0;
-    justify-content: start;
+    @include display(null, null, start);
   }
 }
 
@@ -22,8 +22,6 @@
 }
 
 .buttonContainer {
-  display: none;
-  flex-direction: column;
   width: 60%;
   position: fixed;
   z-index: 1000;
@@ -35,18 +33,16 @@
   transform: translateX(-9.375rem);
   transition: all 0.3s ease-in-out;
   opacity: 0;
-  
+  @include display(none, column);
   @media screen and (max-width: 768px) {
     display: none;
   }
-  @media screen and (max-width: 576px){
+  @media screen and (max-width: 576px) {
     width: 100%;
   }
 }
 
 .windowMenu {
-  display: flex;
-  flex-direction: column;
   gap: 1.5625rem;
   width: 100%;
   list-style-type: none;
@@ -54,27 +50,26 @@
   padding-bottom: 1.6rem;
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
+  @include display(flex, column);
 }
 
 .windowMenuItem {
-  display: flex;
-  align-items: center;
   margin-left: 2.25rem;
   gap: 1rem;
 
   &:nth-child(4),
-  &:nth-child(5){
+  &:nth-child(5) {
     margin-left: 2.875rem;
   }
+  @include display(flex, null, null, center);
 }
 
 .windowMenuItemShop {
-  display: flex;
-  align-items: center;
   flex-wrap: wrap;
   padding-right: 0.9375rem;
   padding-left: 0.9375rem;
   padding-bottom: 1.5625rem;
+  @include display(flex, null, null, center);
 }
 
 .menuListItemA {
@@ -107,17 +102,15 @@
 }
 
 .shopInner {
-  display: flex;
-  flex-direction: column;
+  @include display(flex, column);
 }
 
 .shopMenu {
-  display: none;
-  flex-direction: column;
   gap: 0.3125rem;
   width: 100%;
   margin-left: 4rem;
   padding-bottom: 0.625rem;
+  @include display(none, column);
 }
 
 .shopMenuItemA {
@@ -145,15 +138,11 @@
   }
 }
 
-
-
 .closeContainer {
   padding-top: 1rem;
   padding-left: 1.5625rem;
   padding-right: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: end;
+  @include display(flex, null, end, center);
 }
 
 .closeButton {

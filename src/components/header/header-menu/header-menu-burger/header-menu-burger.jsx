@@ -1,49 +1,10 @@
-import { useRef } from "react";
 import styles from "./header-menu-burger.module.scss";
+import { headerBurgerScript } from "../../../../scripts/header-burger-script";
 
 const HeaderMenuBurger = () => {
-  const burgerFlag = useRef(false);
-  const buttonFlag = useRef(false);
-
-  const openBurger = () => {
-    const burgerWindow = document.getElementById("burger-window");
-    const burgerMain = document.getElementById("burger-main");
-    burgerFlag.current = !burgerFlag.current;
-
-    if (burgerFlag.current) {
-      burgerMain.style.transform ="rotateZ(90deg)"
-      burgerWindow.style.display = "flex";
-      setTimeout(() => {
-        burgerWindow.style.transform = "translateX(0rem)";
-        burgerWindow.style.opacity = "1";
-      }, 10);
-    } else {
-      burgerMain.style.transform ="rotateZ(0deg)"
-      burgerWindow.style.transform = "translateX(-9.375rem)";
-      burgerWindow.style.opacity = "0";
-      setTimeout(() => {
-        burgerWindow.style.display = "none";
-      }, 300);
-    }
-  };
-
-  const openShop = () => {
-    const shopMenu = document.getElementById("shop-menu");
-    const menuButton = document.getElementById("menu-button");
-
-    buttonFlag.current = !buttonFlag.current;
-
-    if (buttonFlag.current) {
-      menuButton.style.transform = "rotateZ(0deg) translateY(0.3125rem)";
-      shopMenu.style.display = "flex";
-    } else {
-      menuButton.style.transform = "rotateZ(270deg)";
-      shopMenu.style.display = "none";
-    }
-  };
+  const { openBurger, openShop } = headerBurgerScript();
 
   return (
-    //className={styles.closeButton}
     <>
       <div className={styles.buttonContainer} id="burger-window">
         <div className={styles.closeContainer}>
@@ -178,7 +139,11 @@ const HeaderMenuBurger = () => {
           </li>
         </ul>
       </div>
-      <button className={styles.burgerButton} onClick={openBurger} id="burger-main">
+      <button
+        className={styles.burgerButton}
+        onClick={openBurger}
+        id="burger-main"
+      >
         <svg
           className={styles.burgerButtonSvg}
           width="24"

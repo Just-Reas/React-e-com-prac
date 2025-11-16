@@ -2,7 +2,6 @@ import { useRef } from "react";
 import styles from "./header-menu-search.module.scss";
 
 const HeaderMenuSearch = () => {
-
   return (
     <div className={styles.search} id="search-main">
       <input

@@ -1,12 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { throttle } from "lodash";
-import { useMediaQuery } from "react-responsive";
 import styles from "./header-menu-buttons.module.scss";
 import { headerMenuScript } from "../../../../scripts/header-menu-script";
 
 const HeaderMenuButtons = () => {
-
-  const {buttonSearch,closeSearch} = headerMenuScript()
+  const { buttonSearch, closeSearch } = headerMenuScript();
 
   return (
     <div className={styles.menuButtons}>

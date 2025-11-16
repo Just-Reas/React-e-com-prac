@@ -2,30 +2,27 @@
 @import "../../../../style/variables.scss";
 
 .menuList {
-  display: flex;
-  align-items: center;
   gap: 1.5rem;
+  @include display(flex, null, null, center);
 
   @media screen and (max-width: 992px) {
     width: 100%;
   }
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: none;
   }
-  @media screen and (max-width: 576px){
+  @media screen and (max-width: 576px) {
   }
 }
 
 .menuListItem {
-  display: flex;
   position: relative;
-  justify-content: space-between;
-  align-items: center;
   gap: 0.25rem;
 
   color: $black_color;
   text-decoration: unset;
+  @include display(flex, null, space-between, center);
 }
 
 .menuListItemA {

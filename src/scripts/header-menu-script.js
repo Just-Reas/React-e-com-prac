@@ -17,8 +17,9 @@ export const headerMenuScript = () => {
     const profileButton = document.getElementById("profile-button");
     const buyButton = document.getElementById("buy-button");
     const headerIcon = document.getElementById("header-icon");
-    const burgerWindow = document.getElementById("burger-window");
-    const burgerMain = document.getElementById("burger-main");
+    const headerInner = document.getElementById("header-inner")
+    // const burgerWindow = document.getElementById("burger-window");
+    // const burgerMain = document.getElementById("burger-main");
 
     if (!isSm) {
       if (!isMd) {
@@ -30,8 +31,8 @@ export const headerMenuScript = () => {
           searchButton.style.display = "none";
           console.log(`1`);
         } else {
-          burgerMain.style.transform ="rotateZ(0deg)"
-          burgerWindow.style.display = "none";
+          // burgerMain.style.transform ="rotateZ(0deg)"
+          // burgerWindow.style.display = "none";
           profileButton.style.display="flex"
           buyButton.style.display="flex"
           headerIcon.style.display="flex"
@@ -50,6 +51,7 @@ export const headerMenuScript = () => {
         console.log(`3`);
       }
     }else{
+      headerInner.style.rowGap = "0"
       search.style.display="none"
       searchButton.style.display="flex"
       discount.style.display="none"
@@ -70,6 +72,7 @@ export const headerMenuScript = () => {
     const buyButton = document.getElementById("buy-button");
     const profileButton = document.getElementById("profile-button");
     const headerIcon = document.getElementById("header-icon");
+    const headerInner = document.getElementById("header-inner")
 
     if (!isSm){
       if (!isMd) {
@@ -89,6 +92,7 @@ export const headerMenuScript = () => {
       headerIcon.style.display = "none";
     }
     }else{
+      headerInner.style.rowGap = "1rem"
       search.style.display="flex"
       searchMain.style.display="flex"
       searchButton.style.display="none"
@@ -122,6 +126,7 @@ export const headerMenuScript = () => {
       headerIcon.style.display = "flex";
     }
     }else{
+      setTimeout(() =>{headerInner.style.rowGap = "0"},10)
       search.style.display="none"
       searchMain.style.display="none"
       searchButton.style.display="flex"
