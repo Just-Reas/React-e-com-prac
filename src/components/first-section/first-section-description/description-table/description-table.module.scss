@@ -3,10 +3,16 @@
 
 .descriptionMenu{
     display: flex;
-    align-items: center;
+    align-items: start;
     gap: 2rem;
     margin-top: 3rem;
     margin-bottom: 4.25rem;
+
+    @media screen and (max-width:1200px){
+        margin-top: 2.55rem;
+        margin-bottom: 1.0625rem;
+        gap: 1.7rem;
+    }
 }
 
 .descriptionItem{
@@ -18,11 +24,17 @@
 
 .descriptionItemHeader{
     @include sato(bold,2.5rem);
+    @media screen and (max-width:1200px){
+        @include sato(bold,2.25rem);
+    }
 }
 
 .descriptionItemDesc{
     @include sato(normal,1rem);
     opacity: 0.6;
+    @media screen and (max-width:1200px){
+        @include sato(normal,0.9rem);
+    }
 }
 
 .descriptionItemLine{
