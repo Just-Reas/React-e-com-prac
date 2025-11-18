@@ -1,8 +1,8 @@
 import styles from "./header-menu-burger.module.scss";
-import { headerBurgerScript } from "../../../../scripts/header-burger-script";
+import { useHeaderBurger } from "./utils/header-burger-script";
 
 const HeaderMenuBurger = () => {
-  const { openBurger, openShop } = headerBurgerScript();
+  const {handleBurgerToggle, handleShopToggle } = useHeaderBurger();
 
   return (
     <>
@@ -11,7 +11,7 @@ const HeaderMenuBurger = () => {
           <button className={styles.closeButton}>
             <svg
               className={styles.closeButton}
-              onClick={openBurger}
+              onClick={handleBurgerToggle}
               width="36"
               height="36"
               viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ const HeaderMenuBurger = () => {
           <button
             className={styles.menuButton}
             id="menu-button"
-            onClick={openShop}
+            onClick={handleShopToggle}
           >
             <svg
               className={styles.menuButtonSvg}
@@ -141,7 +141,7 @@ const HeaderMenuBurger = () => {
       </div>
       <button
         className={styles.burgerButton}
-        onClick={openBurger}
+        onClick={handleBurgerToggle}
         id="burger-main"
       >
         <svg

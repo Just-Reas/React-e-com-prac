@@ -1,15 +1,15 @@
 import styles from "./header-menu-buttons.module.scss";
-import { headerMenuScript } from "../../../../scripts/header-menu-script";
+import { useHeaderMenu } from "./utils/header-menu-script";
 
 const HeaderMenuButtons = () => {
-  const { buttonSearch, closeSearch } = headerMenuScript();
+  const { handleSearchOpen, handleSearchClose } = useHeaderMenu();
 
   return (
     <div className={styles.menuButtons}>
       <button
         className={styles.buttonSearch}
         id="search-button"
-        onClick={buttonSearch}
+        onClick={handleSearchOpen}
       >
         <svg
           className={styles.buttonSearchSvg}
@@ -28,7 +28,7 @@ const HeaderMenuButtons = () => {
       <button
         className={styles.discountButton}
         id="discount-button"
-        onClick={closeSearch}
+        onClick={handleSearchClose}
       >
         <svg
           className={styles.discountButtonSvg}

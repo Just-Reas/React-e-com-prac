@@ -1,5 +1,5 @@
 import styles from "./header-menu-list.module.scss";
-import { headerListScript } from "../../../../scripts/header-list-script";
+import { headerListScript } from "./utils/header-list-script";
 
 const HeaderMenuList = () => {
   const { shopButton } = headerListScript();

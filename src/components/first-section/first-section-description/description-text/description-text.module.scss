@@ -12,12 +12,45 @@
 
     @media screen and (max-width: 1200px){
         @include int(bold, 1.785rem);
-        margin-top: 5.05rem;
+        margin-top: 4.05rem;
+    }
+    @media screen and (max-width: 992px){
+        @include int(bold, 1.4rem);
+        margin-top: 3rem;
+    }
+    @media screen and (max-width: 768px){
+        @include int(bold, 1.8rem);
+        margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 576px){
+        @include int(bold, 1.2rem);
+        margin-top: 1.8rem;
+    }
+    @media screen and (max-width: 390px){
+        @include int(bold, 0.9rem);
+        margin-top: 2.5rem;
     }
 
     h1{
         margin: 0;
         line-height: 4rem;
+
+        @media screen and (max-width: 1200px){
+            line-height: 3.5rem;
+        }
+        @media screen and (max-width: 992px){
+            line-height: 3rem;
+        }
+        @media screen and (max-width: 768px){
+            line-height: 4rem;
+        }
+        @media screen and (max-width: 576px){
+            line-height: 3rem;
+        }
+        @media screen and (max-width: 390px){
+            line-height: 2.2rem;
+        }
     }
 }
 
@@ -27,6 +60,27 @@
     margin: 2rem 0;
     @media screen and (max-width: 1200px){
         @include sato(normal, 0.9rem);
+        max-width: 31.25rem;
+    }
+    @media screen and (max-width: 992px){
+        @include sato(normal, 0.75rem);
+        max-width: 25rem;
+        margin: 1.75rem 0;
+    }
+    @media screen and (max-width: 768px){
+        @include sato(normal, 1rem);
+        max-width: 35rem;
+        margin: 2rem 0;
+    }
+    @media screen and (max-width: 576px){
+        @include sato(normal, 0.7rem);
+        max-width: 35rem;
+        margin: 1.75rem 0;
+    }
+    @media screen and (max-width: 390px){
+        @include sato(normal, 0.7rem);
+        max-width: 35rem;
+        margin: 1.75rem 0;
     }
 }
 

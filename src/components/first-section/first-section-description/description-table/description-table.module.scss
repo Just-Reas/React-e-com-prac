@@ -1,45 +1,133 @@
 @import "../../../../style/mixins.scss";
 @import "../../../../style/variables.scss";
 
-.descriptionMenu{
-    display: flex;
-    align-items: start;
-    gap: 2rem;
-    margin-top: 3rem;
-    margin-bottom: 4.25rem;
+.descriptionMenu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 4.25rem;
 
-    @media screen and (max-width:1200px){
-        margin-top: 2.55rem;
-        margin-bottom: 1.0625rem;
-        gap: 1.7rem;
+  @media screen and (max-width: 1200px) {
+    margin-top: 2.55rem;
+    margin-bottom: 1.7625rem;
+    gap: 1.7rem;
+  }
+
+  @media screen and (max-width: 992px) {
+    margin-top: 2rem;
+    margin-bottom: 1.4625rem;
+    gap: 1.3rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    gap: 1.3rem;
+    justify-content: center;
+  }
+  @media screen and (max-width: 576px) {
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 390px) {
+    gap: 1rem;
+    margin-top: 1.4rem;
+  }
+}
+
+.descriptionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: $black_color;
+
+  &:nth-child(1) {
+    @media screen and (max-width: 576px) {
+      display: flex;
+      width: 8.75rem;
     }
-}
-
-.descriptionItem{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    color: $black_color;
-}
-
-.descriptionItemHeader{
-    @include sato(bold,2.5rem);
-    @media screen and (max-width:1200px){
-        @include sato(bold,2.25rem);
+    @media screen and (max-width: 390px) {
+      display: flex;
+      width: 6.25rem;
     }
-}
+  }
 
-.descriptionItemDesc{
-    @include sato(normal,1rem);
-    opacity: 0.6;
-    @media screen and (max-width:1200px){
-        @include sato(normal,0.9rem);
+  &:nth-child(3) {
+    @media screen and (max-width: 576px) {
+      display: flex;
+      align-items: end;
+      width: 8.75rem;
     }
+    @media screen and (max-width: 390px) {
+      display: flex;
+      width: 6.25rem;
+    }
+  }
+
+  &:nth-child(4) {
+    @media screen and (max-width: 576px) {
+      display: none;
+    }
+  }
+
+  &:nth-child(5) {
+    @media screen and (max-width: 576px) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
 }
 
-.descriptionItemLine{
-    width: .0625rem;
+.descriptionItemHeader {
+  @include sato(bold, 2.5rem);
+  @media screen and (max-width: 1200px) {
+    @include sato(bold, 1.8rem);
+  }
+  @media screen and (max-width: 992px) {
+    @include sato(bold, 1.675rem);
+  }
+  @media screen and (max-width: 768px) {
+    @include sato(bold, 2.25rem);
+  }
+  @media screen and (max-width: 390px) {
+    @include sato(bold, 1.25rem);
+  }
+}
+
+.descriptionItemDesc {
+  @include sato(normal, 1rem);
+  white-space: nowrap;
+  opacity: 0.6;
+  @media screen and (max-width: 1200px) {
+    @include sato(normal, 0.9rem);
+  }
+  @media screen and (max-width: 992px) {
+    @include sato(normal, 0.6rem);
+  }
+  @media screen and (max-width: 768px) {
+    @include sato(normal, 0.9rem);
+  }
+  @media screen and (max-width: 390px) {
+    @include sato(normal, 0.65rem);
+  }
+}
+
+.descriptionItemLine {
+  width: 0.0625rem;
+  height: 4.625rem;
+  background-color: $black_color;
+  opacity: 0.2;
+  @media screen and (max-width: 1200px) {
+    height: 4.425rem;
+  }
+  @media screen and (max-width: 992px) {
+    height: 4.125rem;
+  }
+  @media screen and (max-width: 768px) {
     height: 4.625rem;
-    background-color: $black_color;
-    opacity: 0.2;
+  }
+  @media screen and (max-width: 390px) {
+    height: 3.625rem;
+  }
 }

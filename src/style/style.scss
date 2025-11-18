@@ -1,8 +1,8 @@
-@import './normalize.css';
-@import './variables.scss';
-@import './mixins.scss';
+@import "./normalize.css";
+@import "./variables.scss";
+@import "./mixins.scss";
 
-@import '../components/first-section/first-section-description/description-text/description-text-button/description-text-button.module.scss';
+@import "../components/first-section/first-section-description/description-text/description-text-button/description-text-button.module.scss";
 
 .container {
   max-width: 77.5rem;
@@ -11,105 +11,121 @@
   @media screen and (max-width: 1440px) {
     padding: 0 0.625rem;
   }
-   @media screen and (max-width: 576px){
+  @media screen and (max-width: 768px) {
+    padding: 0 10px;
+  }
+  @media screen and (max-width: 576px) {
     padding: 0 0.3125rem;
-   }
+  }
+}
+
+.containerSup {
+  max-width: 77.5rem;
+  margin: 0 auto;
+  @media screen and (max-width: 1440px) {
+    padding: 0 0.625rem;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  @media screen and (max-width: 576px) {
+    padding: 0 0.5rem;
+  }
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-BoldItalic.woff2') format('woff2');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-BoldItalic.woff2") format("woff2");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-Black.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-Black.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-MediumItalic.woff2') format('woff2');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-LightItalic.woff2') format('woff2');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-Italic.woff2') format('woff2');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-Italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-BlackItalic.woff2') format('woff2');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-BlackItalic.woff2") format("woff2");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-Bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-Light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Satoshi';
-    src: url('./fonts/Satoshi-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("./fonts/Satoshi-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'HelveticaNeueLT W1G 95 Blk';
-    src: url('./fonts/HelveticaNeueLTW1G-Blk.woff2') format('woff2');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "HelveticaNeueLT W1G 95 Blk";
+  src: url("./fonts/HelveticaNeueLTW1G-Blk.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Integral CF';
-    src: url('./fonts/IntegralCF-Bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Integral CF";
+  src: url("./fonts/IntegralCF-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
-
-

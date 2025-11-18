@@ -9,7 +9,6 @@
   background-image: url(../../../public/first-section.jpg);
   background-position: 94% 18%;
   background-size: 45%;
-  min-width: 700px;
   height: auto;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -30,6 +29,9 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      @media screen and (max-width:768px){
+        display: none;
+      }
     }
   }
   @media screen and (max-width:1440px){
@@ -39,5 +41,17 @@
   @media screen and (max-width:1200px){
     background-size: 45%;
     background-position: 99% 18%;
+  }
+  @media screen and (max-width:992px){
+    background-size: 47.5%;
+    background-position: 99% 14%;
+  }
+  @media screen and (max-width:768px){
+    position: unset;
+    background-image: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 }

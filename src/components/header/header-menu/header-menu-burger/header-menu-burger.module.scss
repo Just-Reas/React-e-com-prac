@@ -15,6 +15,9 @@
     order: 0;
     @include display(null, null, start);
   }
+  @media screen and (max-width: 390px) {
+    order: 1;
+  }
 }
 
 .burgerButtonSvg {

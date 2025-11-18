@@ -1,13 +1,11 @@
 import FirstSection from "./components/first-section/first-section";
-import HeaderDiscount from "./components/header/header-disount/header-discount";
-import HeaderMenu from "./components/header/header-menu/header-menu";
+import Header from "./components/header/header";
 
 function App() {
   return (
     <>
       <header>
-        <HeaderDiscount />
-        <HeaderMenu />
+        <Header/>
       </header>
       <main>
         <FirstSection />

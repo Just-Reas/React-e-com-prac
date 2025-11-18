@@ -1,8 +1,8 @@
-import { headerDiscountScript } from "../../../scripts/header-discount-script";
 import styles from "./header-discount.module.scss";
+import { useHeaderDiscountScript } from "./utils/header-discount-script";
 
 const HeaderDiscount = () => {
-  const { discountClose } = headerDiscountScript();
+  const { handleDiscountClose } = useHeaderDiscountScript();
 
   return (
     <div className={styles.discount} id="discount-window">
@@ -13,7 +13,7 @@ const HeaderDiscount = () => {
             <a href="#">Sign Up Now</a>
           </div>
 
-          <button className={styles.discountButton} onClick={discountClose}>
+          <button className={styles.discountButton} onClick={handleDiscountClose}>
             <svg
               width="14"
               height="14"
