@@ -1,0 +1,35 @@
+@import "../../style/mixins.scss";
+@import "../../style/variables.scss";
+
+.inner{
+    display: flex;
+    width: 100%;
+    background-color: $black_color;
+}
+
+.menu{
+    padding: 44px 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item{
+    display: block;
+    height: 100%;
+    align-items: center;   
+    color: $white_color;
+}
+
+.itemSvg{
+    width: fit-content;
+    display: block;
+    width: 100%;
+    height: auto;
+    @media screen and (max-width:1200px){
+        transform: scale(0.5);
+        height: auto;
+    }
+}
