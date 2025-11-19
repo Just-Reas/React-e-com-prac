@@ -1,0 +1,55 @@
+ @import "../../../style/mixins.scss";
+@import "../../../style/variables.scss";
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 25rem;
+    max-height: 15rem;
+    gap: .9375rem;
+    padding: 1.75rem 2rem;
+    border: .0625rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 1.25rem;
+}
+
+.ratingContainer{
+    display: flex;
+    align-items: center;
+}
+
+.nameContainer{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.name{
+    display: flex;
+    align-items: center;
+    @include sato(bold,1.25rem);
+    color: $black_color;
+}
+
+.nameVerification{
+    display: flex;
+    width: 1.5rem;
+    height: auto;
+    color: #01AB31;
+}
+
+.textContainer{
+    display: flex;
+    height: 100%;
+}
+
+.txt{
+    @include sato(normal,1rem);
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.reviewContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+

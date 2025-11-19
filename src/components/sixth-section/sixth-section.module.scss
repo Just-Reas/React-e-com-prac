@@ -1,0 +1,68 @@
+@import "../../style/mixins.scss";
+@import "../../style/variables.scss";
+
+.inner {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+.text {
+  @include int(bold, 3rem);
+  white-space: nowrap;
+  color: $black_color;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+  margin-top: 2.125rem;
+}
+
+.leftbutton,
+.rightbutton {
+  background-color: unset;
+  border: unset;
+  color: $black_color;
+  cursor: pointer;
+
+  &:hover {
+    color: $gray_color;
+  }
+  &:active {
+    color: $lightgray_color;
+  }
+}
+
+.reviewContainer {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1240px;
+  overflow: hidden; 
+  position: relative;
+}
+
+.reviewMenu {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-width: min-content;
+  gap: 1.25rem;
+  will-change: transform;
+}
+
+.reviewItem {
+  flex: 0 0 auto;
+}
