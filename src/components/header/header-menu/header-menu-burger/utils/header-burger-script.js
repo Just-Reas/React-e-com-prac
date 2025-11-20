@@ -82,7 +82,7 @@ export const useHeaderBurger = () => {
 
   const handleShopToggle = useCallback(() => {
     const shopMenu = document.getElementById("shop-menu");
-    const menuButton = document.getElementById("menu-button");
+    const menuButton = document.getElementById("menu-button-two");
 
     if (!shopMenu || !menuButton) return;
 

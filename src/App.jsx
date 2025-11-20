@@ -20,7 +20,7 @@ function App() {
         <Line />
         <FourthSection />
         <FivethSection />
-        {/* <SixthSection /> */}
+        <SixthSection />
       </main>
     </>
   );

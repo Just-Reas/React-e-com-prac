@@ -28,7 +28,7 @@ const HeaderMenuBurger = () => {
         <div className={styles.windowMenuItemShop}>
           <button
             className={styles.menuButton}
-            id="menu-button"
+            id="menu-button-two"
             onClick={handleShopToggle}
           >
             <svg

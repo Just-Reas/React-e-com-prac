@@ -47,20 +47,19 @@
   display: flex;
   margin: 0 auto;
   max-width: 1240px;
-  overflow: hidden; 
   position: relative;
+  overflow: hidden;
 }
 
 .reviewMenu {
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: center; 
   align-items: center;
   padding: 0;
-  margin: 0;
   list-style: none;
-  min-width: min-content;
   gap: 1.25rem;
-  will-change: transform;
 }
 
 .reviewItem {

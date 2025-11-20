@@ -1,6 +1,9 @@
 import styles from "./review.module.scss";
 
-const Review = () => {
+const Review = (props) => {
+  const{
+    name
+  } = props
   return (
     <div className={styles.mainContainer}>
       <div className={styles.ratingContainer}>
@@ -12,7 +15,7 @@ const Review = () => {
       </div>
       <div className={styles.reviewContainer}>
         <div className={styles.nameContainer}>
-          <div className={styles.name}>Sarah M.</div>
+          <div className={styles.name}>{name}</div>
           <div className={styles.nameVerification}>
             <svg
               width="24"

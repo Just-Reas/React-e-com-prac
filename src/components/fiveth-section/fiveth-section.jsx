@@ -1,6 +1,8 @@
+import { useEffect, useRef } from "react";
 import styles from "./fiveth-section.module.scss";
 
 const FivethSection = () => {
+
   return (
     <div className={styles.inner}>
       <div className="containerSup">

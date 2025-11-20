@@ -10,13 +10,13 @@ export const headerListScript = () =>{
     if (buttonFlag.current == true) {
       menu.style.opacity = "1"
       menu.style.transform = "translateY(0)"
-      button.style.transform ="rotateX(180deg) translateY(-0.125rem)"
+      button.style.transform = "rotateX(180deg) translateY(-0.125rem)"
     } else {
       menu.style.opacity = "0"
       menu.style.transform = "translateY(-1.25rem)"
       button.style.transform ="rotateX(0) translateY(0)"
     }
-  });
+  },[]);
 
   return {shopButton}
 }

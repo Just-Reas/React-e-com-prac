@@ -1,16 +1,41 @@
 import { useRef, useEffect, useState } from "react";
 import styles from "./sixth-section.module.scss";
 import Review from "./ui/review";
+import { useMediaQuery } from "react-responsive";
 
 const SixthSection = () => {
+  const isMd = useMediaQuery({ maxWidth: 768 });
+  const isSm = useMediaQuery({ maxWidth: 390 });
+  const widthRef = useRef();
+  const scrollSize = useRef(0);
 
+  useEffect(() => {
+    const width = document.getElementById("review-menu");
+    const item = document.getElementById("review-item");
+    const blockGap = 20;
+    const blockWidth = item.offsetWidth * 7 + blockGap * 6;
+    const blockCenter = blockWidth / 2;
+    widthRef.current = blockCenter;
+    console.log(item.offsetWidth, isMd, isSm, blockWidth, blockCenter);
+  }, []);
+
+  const leftSlide = () => {
+    const item = document.getElementById("review-item");
+    const menu = document.getElementById("review-menu");
+    scrollSize.current -= (item.offsetWidth + 20)
+    if (widthRef.current - item.offsetWidth > item.offsetWidth) {
+      menu.style.transform = `translateX(${scrollSize.current}px)`;
+      widthRef.current -= item.offsetWidth
+      console.log(widthRef.current)
+    }
+  };
   return (
     <div className={styles.inner}>
       <div className="containerSup">
         <div className={styles.headerContainer}>
           <div className={styles.text}>OUR HAPPY CUSTOMERS</div>
           <div className={styles.buttons}>
-            <button className={styles.leftbutton} >
+            <button className={styles.leftbutton} onClick={leftSlide}>
               <svg
                 width="19"
                 height="16"
@@ -24,7 +49,7 @@ const SixthSection = () => {
                 />
               </svg>
             </button>
-            <button className={styles.rightbutton} >
+            <button className={styles.rightbutton}>
               <svg
                 width="19"
                 height="16"
@@ -42,29 +67,31 @@ const SixthSection = () => {
         </div>
       </div>
       <div className={styles.reviewContainer}>
-        <ul 
-          className={styles.reviewMenu}
-        >
-          <li className={styles.reviewItem}>
-            <Review />
+        <ul className={styles.reviewMenu} id="review-menu">
+          <li
+            className={styles.reviewItem}
+            data-review-type="slide"
+            id="review-item"
+          >
+            <Review name="Adam A."/>
           </li>
-          <li className={styles.reviewItem}>
-            <Review />
+          <li className={styles.reviewItem} data-review-type="slide">
+            <Review name="Bob B."/>
           </li>
-          <li className={styles.reviewItem}>
-            <Review />
+          <li className={styles.reviewItem} data-review-type="slide">
+            <Review name="Clarity C."/>
           </li>
-          <li className={styles.reviewItem}>
-            <Review />
+          <li className={styles.reviewItem} data-review-type="slide">
+            <Review name="Darvin D."/>
           </li>
-          <li className={styles.reviewItem}>
-            <Review />
+          <li className={styles.reviewItem} data-review-type="slide">
+            <Review name="Eminem E."/>
           </li>
-          <li className={styles.reviewItem}>
-            <Review />
+          <li className={styles.reviewItem} data-review-type="slide">
+            <Review name="Frank F."/>
           </li>
-          <li className={styles.reviewItem}>
-            <Review />
+          <li className={styles.reviewItem} data-review-type="slide">
+            <Review name="Gilbert G."/>
           </li>
         </ul>
       </div>
