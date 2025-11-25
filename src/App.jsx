@@ -1,32 +1,20 @@
-import FirstSection from "./components/first-section/first-section";
-import FivethSection from "./components/fiveth-section/fiveth-section";
-import Footer from "./components/footer/footer";
-import FourthSection from "./components/fourth-section/fourth-section";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from "./components/header/header";
-import Line from "./components/line/line";
-import SecondSection from "./components/second-section/second-section";
-import SixthSection from "./components/sixth-section/sixth-section";
-import ThirdSection from "./components/third-section/third-section";
+import Footer from "./components/footer/footer";
+import Home from "./pages/Home";
+import Shop from './pages/Shop';
+// import About from "./pages/About";
 
 function App() {
   return (
-    <>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <FirstSection />
-        <SecondSection />
-        <ThirdSection />
-        <Line />
-        <FourthSection />
-        <FivethSection />
-        <SixthSection />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

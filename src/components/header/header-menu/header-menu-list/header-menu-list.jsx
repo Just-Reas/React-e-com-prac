@@ -1,16 +1,17 @@
 import styles from "./header-menu-list.module.scss";
 import { headerListScript } from "./utils/header-list-script";
+import { Link } from 'react-router-dom';
 
 const HeaderMenuList = () => {
   const { shopButton } = headerListScript();
 
   return (
-    <ul className={styles.menuList} id="menu-list">
+    <nav className={styles.menuList} id="menu-list">
       <li className={styles.menuListItem}>
         <div className="header-menu-list__shop">
-          <a className={styles.menuListItemA} href="#">
+          <Link to="/shop" className={styles.menuListItemA}>
             Shop
-          </a>
+          </Link>
         </div>
 
         <button
@@ -65,7 +66,7 @@ const HeaderMenuList = () => {
           Brands
         </a>
       </li>
-    </ul>
+    </nav>
   );
 };
 
