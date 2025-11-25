@@ -1,5 +1,6 @@
 import FirstSection from "./components/first-section/first-section";
 import FivethSection from "./components/fiveth-section/fiveth-section";
+import Footer from "./components/footer/footer";
 import FourthSection from "./components/fourth-section/fourth-section";
 import Header from "./components/header/header";
 import Line from "./components/line/line";
@@ -22,6 +23,9 @@ function App() {
         <FivethSection />
         <SixthSection />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

@@ -11,7 +11,12 @@
     border: .0625rem solid rgba(0, 0, 0, 0.1);
     border-radius: 1.25rem;
     @media screen and (max-width:1200px){
-        max-width: 21.875rem;
+        max-width: 19.6875rem;
+        gap: .75rem;
+    }
+    @media screen and (max-width:390px){
+        max-width: 16.875rem;
+        gap: .6rem;
     }
 }
 
@@ -33,6 +38,9 @@
     align-items: center;
     @include sato(bold,1.25rem);
     color: $black_color;
+    @media screen and (max-width:1200px){
+        @include sato(bold,1.2rem);
+    }
 }
 
 .nameVerification{
@@ -51,11 +59,20 @@
 .txt{
     @include sato(normal,1rem);
     color: rgba(0, 0, 0, 0.6);
+    @media screen and (max-width:1200px){
+       @include sato(normal,0.9rem);
+    }
+    @media screen and (max-width:390px){
+       @include sato(normal,0.75rem);
+    }
 }
 
 .reviewContainer{
     display: flex;
     flex-direction: column;
+    @media screen and (max-width:390px){
+        gap: 0.25rem;
+    }
 }
 
 

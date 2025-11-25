@@ -6,6 +6,7 @@
   width: 100%;
   flex-direction: column;
   gap: 2.5rem;
+  margin-bottom: 5rem;
 }
 
 .headerContainer {
@@ -18,6 +19,21 @@
   @include int(bold, 3rem);
   white-space: nowrap;
   color: $black_color;
+  @media screen and (max-width:1200px){
+    @include int(bold, 2.75rem);
+  }
+  @media screen and (max-width:992px){
+    @include int(bold, 2.5rem);
+  }
+  @media screen and (max-width:768px){
+    @include int(bold, 1.75rem);
+  }
+  @media screen and (max-width:576px){
+    white-space: wrap;
+  }
+  @media screen and (max-width:390px){
+    @include int(bold, 1.25rem);
+  }
 }
 
 .buttons {
