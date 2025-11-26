@@ -7,7 +7,7 @@ const DescriptionText = () =>{
                 <h1>FIND CLOTHES<br></br>THAT MATCHES<br></br>YOUR STYLE</h1>
             </div>
             <div className={styles.descriptionDesc}>
-                <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
+                <div>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
             </div>
         </div>
     )

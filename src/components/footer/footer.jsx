@@ -68,7 +68,7 @@ const Footer = () => {
               </div>
             </li>
             <li className={styles.footerItem}>
-              <a className={styles.footerMain}>COMPANY</a>
+              <a href="#" className={styles.footerMain}>COMPANY</a>
               <div className={styles.footerLinksList}>
                 <a href="#" className={styles.footerLinksItem}>
                   About
@@ -85,7 +85,7 @@ const Footer = () => {
               </div>
             </li>
             <li className={styles.footerItem}>
-              <a className={styles.footerMain}>HELP</a>
+              <a href="#" className={styles.footerMain}>HELP</a>
               <div className={styles.footerLinksList}>
                 <a href="#" className={styles.footerLinksItem}>
                   Customer Support
@@ -102,7 +102,7 @@ const Footer = () => {
               </div>
             </li>
             <li className={styles.footerItem}>
-              <a className={styles.footerMain}>FAQ</a>
+              <a href="#" className={styles.footerMain}>FAQ</a>
               <div className={styles.footerLinksList}>
                 <a href="#" className={styles.footerLinksItem}>
                   Account
@@ -119,7 +119,7 @@ const Footer = () => {
               </div>
             </li>
             <li className={styles.footerItem}>
-              <a className={styles.footerMain}>RESOURCES</a>
+              <a href="#" className={styles.footerMain}>RESOURCES</a>
               <div className={styles.footerLinksList}>
                 <a href="#" className={styles.footerLinksItem}>
                   Free eBooks

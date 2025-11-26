@@ -9,7 +9,7 @@
 .discountInner {
   padding: 0.5625rem 0;
 
-  @include display(flex, space-between, center);
+  @include display(flex, null, space-between, center);
 }
 
 .discountText {
@@ -53,7 +53,7 @@
   svg {
     height: 0.875rem;
     width: 0.875rem;
-    @include display(flex, center, center);
+    @include display(flex, null ,  center, center);
   }
 
   &:hover {

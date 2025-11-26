@@ -9,11 +9,12 @@ const ProductItem = (props) =>{
         Discount
     } = props
     return(
+        <a href="#">
         <div className={styles.box}>
             <div className={styles.pic}>
                 <img className={styles.picPng} src="./product.png" alt="product" />
             </div>
-            <a className={styles.name}>{Name}</a>
+            <div href="#" className={styles.name}>{Name}</div>
             <div className={styles.rating}>
                 <div className={styles.ratingStars}>
                     <img className={styles.star} src="./star.png" alt="star" />
@@ -30,6 +31,7 @@ const ProductItem = (props) =>{
                 <div className={styles.priceDiscount}>{Discount}</div>
             </div>
         </div>
+        </a>
     )
 }
 

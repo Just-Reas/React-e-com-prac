@@ -140,7 +140,6 @@
   font-family: "Satoshi", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
   font-size: 1rem;
   color: $black_color;
   background-color: $white_color;
@@ -257,7 +256,7 @@
 
 .logoButton {
   display: flex;
-  background-color: none;
+  background-color: unset;
   border: none;
   color: unset;
   padding: 0;
@@ -341,7 +340,7 @@
 .rightsText {
   display: flex;
   text-align: center;
-  @include sato(regular, 0.875rem);
+  @include sato(normal, 0.875rem);
   color: #00000060;
 }
 

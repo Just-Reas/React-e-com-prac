@@ -30,7 +30,7 @@
   background-size: 1.3125rem;
   outline: none;
 
-  @include display(flex, center, center);
+  @include display(flex, null , center, center);
   @include sato(bold, 1rem);
 
   &:hover {

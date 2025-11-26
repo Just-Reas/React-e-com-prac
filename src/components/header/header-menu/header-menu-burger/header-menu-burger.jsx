@@ -100,7 +100,7 @@ const HeaderMenuBurger = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g id="Communication / Phone">
+              <g>
                 <path
                   className={styles.phoneLinkSvg}
                   id="Vector"

@@ -36,11 +36,12 @@
 }
 
 .product{
+    margin-top: 1.875rem;
     padding: 1rem 3.375rem;
     background-color: $white_color;
     border-radius: 3.875rem;
     border: 2px solid rgba(0, 0, 0, 0.1);
-    @include sato(medium,1rem);
+    @include sato(500,1rem);
     color: $black_color;
     &:hover{
         border: 2px solid #cccccc;
@@ -53,11 +54,11 @@
     @media screen and (max-width:768px){
         width: 100%;
         padding: 1rem 3.375rem;
-        @include sato(medium,1.25rem);
+        @include sato(500,1.25rem);
     }
     @media screen and (max-width:390px){
         width: 100%;
         padding: 1rem 3.375rem;
-        @include sato(medium,1rem);
+        @include sato(500,1rem);
     }
 }
