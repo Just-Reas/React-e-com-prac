@@ -1,9 +1,37 @@
 import styles from "./header-menu-list.module.scss";
-import { headerListScript } from "./utils/header-list-script";
 import { Link } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
+import useClickOutside from "./utils/header-list-clickoutside";
 
 const HeaderMenuList = () => {
-  const { shopButton } = headerListScript();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef();
+  const buttonRef = useRef();
+
+  useEffect(() => {
+    const menu = document.getElementById('menu-shop');
+    const button = document.getElementById('menu-button');
+    
+    if (menu && button) {
+      if (isMenuOpen) {
+        menu.style.opacity = "1";
+        menu.style.transform = "translateY(0)";
+        button.style.transform = "rotateX(180deg) translateY(-0.125rem)";
+      } else {
+        menu.style.opacity = "0";
+        menu.style.transform = "translateY(-1.25rem)";
+        button.style.transform = "rotateX(0) translateY(0)";
+      }
+    }
+  }, [isMenuOpen]);
+
+  useClickOutside(menuRef, () => {
+    if (isMenuOpen) setIsMenuOpen(false);
+  });
+
+  const handleShopButton = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav>
@@ -16,8 +44,9 @@ const HeaderMenuList = () => {
           </div>
 
           <button
+            ref={buttonRef}
             className={styles.menuButton}
-            onClick={shopButton}
+            onClick={handleShopButton}
             id="menu-button"
           >
             <svg
@@ -34,7 +63,12 @@ const HeaderMenuList = () => {
             </svg>
           </button>
 
-          <ul className={styles.menuShop} id="menu-shop">
+          {/* Убираем условный рендеринг, меню всегда в DOM */}
+          <ul
+            className={styles.menuShop}
+            id="menu-shop"
+            ref={menuRef}
+          >
             <li className={styles.menuShopItem}>
               <a href="#">Men</a>
             </li>
