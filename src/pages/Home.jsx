@@ -1,10 +1,10 @@
-import FirstSection from "../components/first-section/first-section";
-import SecondSection from "../components/second-section/second-section";
-import ThirdSection from "../components/third-section/third-section";
-import Line from "../components/line/line";
-import FourthSection from "../components/fourth-section/fourth-section";
-import FivethSection from "../components/fiveth-section/fiveth-section";
-import SixthSection from "../components/sixth-section/sixth-section";
+import FirstSection from "../components/home-page/first-section/first-section";
+import SecondSection from "../components/home-page/second-section/second-section";
+import ThirdSection from "../components/home-page/third-section/third-section";
+import Line from "../components/home-page/line/line";
+import FourthSection from "../components/home-page/fourth-section/fourth-section";
+import FivethSection from "../components/home-page/fiveth-section/fiveth-section";
+import SixthSection from "../components/home-page/sixth-section/sixth-section";
 
 const Home = () => {
   return (

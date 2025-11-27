@@ -1,19 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/home-page/header/header";
+import Footer from "./components/home-page/footer/footer";
 import Home from "./pages/Home";
-import Shop from './pages/Shop';
-// import About from "./pages/About";
+import Shop from "./pages/Shop";
 
 function App() {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-      </Routes>
-      <Footer />
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </Router>
   );
 }

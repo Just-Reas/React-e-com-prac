@@ -1,8 +1,6 @@
 @import "./normalize.css";
-@import "./variables.scss";
-@import "./mixins.scss";
 
-@import "../components/first-section/first-section-description/description-text/description-text-button/description-text-button.module.scss";
+@import "../components/home-page/first-section/first-section-description/description-text/description-text-button/description-text-button.module.scss";
 
 .container {
   max-width: 77.5rem;
