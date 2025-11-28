@@ -1,9 +1,13 @@
-import ProductComponent from "../third-section/ui/product-component/product-component"
+import ProductComponent from "../third-section/ui/product-component/product-component";
+import { useNavigate } from "react-router-dom";
 
-const FourthSection = () =>{
-    return(
-        <ProductComponent>Top Selling</ProductComponent>
-    )
-}
+const FourthSection = () => {
+  const navigate = useNavigate();
 
-export default FourthSection
+  const handleSaleClick = () => {
+    navigate("/sale");
+  };
+  return <ProductComponent saleClick={handleSaleClick}>Top Selling</ProductComponent>;
+};
+
+export default FourthSection;

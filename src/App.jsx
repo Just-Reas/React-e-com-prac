@@ -3,6 +3,7 @@ import Header from "./components/home-page/header/header";
 import Footer from "./components/home-page/footer/footer";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
+import Sale from "./pages/Sale";
 
 function App() {
   return (
@@ -10,12 +11,11 @@ function App() {
       <header>
         <Header />
       </header>
-      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/sale" element={<Sale />} />
         </Routes>
-      </main>
       <footer>
         <Footer />
       </footer>

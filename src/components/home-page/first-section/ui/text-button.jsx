@@ -1,4 +1,4 @@
-import styles from "./description-text-button.module.scss";
+import styles from "./text-button.module.scss";
 
 const Button = (props) =>{
     const {

@@ -10,7 +10,7 @@ const SixthSection = () => {
         <div className={styles.headerContainer}>
           <div className={styles.text}>OUR HAPPY CUSTOMERS</div>
           <div className={styles.buttons}>
-            <button className={styles.leftbutton} onClick={leftSlide}>
+            <button className={styles.leftbutton} onClick={rightSlide}>
               <svg
                 width="19"
                 height="16"
@@ -24,7 +24,7 @@ const SixthSection = () => {
                 />
               </svg>
             </button>
-            <button className={styles.rightbutton} onClick={rightSlide}>
+            <button className={styles.rightbutton} onClick={leftSlide}>
               <svg
                 width="19"
                 height="16"

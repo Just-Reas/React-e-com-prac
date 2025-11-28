@@ -63,7 +63,6 @@ const HeaderMenuList = () => {
             </svg>
           </button>
 
-          {/* Убираем условный рендеринг, меню всегда в DOM */}
           <ul
             className={styles.menuShop}
             id="menu-shop"
@@ -87,9 +86,9 @@ const HeaderMenuList = () => {
           </ul>
         </li>
         <li className={styles.menuListItem}>
-          <a className={styles.menuListItemA} href="#">
+          <Link to="/sale" className={styles.menuListItemA} href="#">
             On Sale
-          </a>
+          </Link>
         </li>
         <li className={styles.menuListItem}>
           <a className={styles.menuListItemA} href="#">

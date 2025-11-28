@@ -1,0 +1,10 @@
+.saleInner{
+    display: flex;
+    width: 100%;
+}
+
+.saleText{
+    @include int(bold, 3.25rem);
+    text-align: center;
+    margin: 1.5625rem 0;
+}
