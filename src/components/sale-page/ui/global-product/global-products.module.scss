@@ -1,0 +1,27 @@
+.productsInner {
+  display: flex;
+  width: 100%;
+  margin: 2.5rem 0;
+}
+
+.productsBox {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 1.25rem;
+  grid-row-gap: 2.5rem;
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 2.5rem;
+  }
+  @media screen and (max-width: 576px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 2.5rem;
+  }
+}

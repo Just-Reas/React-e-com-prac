@@ -1,14 +1,14 @@
-.saleInner{
+.arrivalsInner{
     display: flex;
     width: 100%;
 }
 
-.saleBox{
+.arrivalsBox{
     display: flex;
     flex-direction: column;
 }
 
-.saleText{
+.arrivalsText{
     @include int(bold, 3.25rem);
     text-align: center;
     margin: 1.5625rem 0;

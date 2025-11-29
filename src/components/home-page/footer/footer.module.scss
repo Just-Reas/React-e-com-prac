@@ -162,9 +162,12 @@
   }
   @media screen and (max-width: 576px) {
     font-size: 0.9rem;
+    padding: 0.45rem 3.5313rem;
   }
   @media screen and (max-width: 390px) {
     font-size: 0.75rem;
+    max-width: 100%;
+    padding: 0.25rem 2.5313rem;
   }
 }
 
@@ -358,5 +361,6 @@
   }
   @media screen and (max-width: 390px) {
     gap: 0.125rem;
+    flex-wrap: wrap;
   }
 }

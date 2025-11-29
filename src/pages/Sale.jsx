@@ -1,5 +1,6 @@
 import SaleSection from "../components/sale-page/sale-section"
 
+
 const Sale = () =>{
     return(
         <main>

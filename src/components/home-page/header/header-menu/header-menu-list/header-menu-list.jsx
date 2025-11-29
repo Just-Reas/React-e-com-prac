@@ -86,14 +86,14 @@ const HeaderMenuList = () => {
           </ul>
         </li>
         <li className={styles.menuListItem}>
-          <Link to="/sale" className={styles.menuListItemA} href="#">
+          <Link to="/sale" className={styles.menuListItemA}>
             On Sale
           </Link>
         </li>
         <li className={styles.menuListItem}>
-          <a className={styles.menuListItemA} href="#">
+          <Link  to="/arrivals" className={styles.menuListItemA}>
             New Arrivals
-          </a>
+          </Link>
         </li>
         <li className={styles.menuListItem}>
           <a className={styles.menuListItemA} href="#">
