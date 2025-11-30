@@ -96,9 +96,9 @@ const HeaderMenuList = () => {
           </Link>
         </li>
         <li className={styles.menuListItem}>
-          <a className={styles.menuListItemA} href="#">
+          <Link to="/brands" className={styles.menuListItemA} >
             Brands
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

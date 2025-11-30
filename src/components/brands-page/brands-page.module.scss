@@ -1,0 +1,261 @@
+.brandsPage {
+  display: flex;
+  width: 100%;
+}
+
+.brandsBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.brandsText {
+  width: 100%;
+  text-align: center;
+  @include int(bold, 5.25rem);
+  margin-top: 2.5rem;
+  @media screen and (max-width: 992px) {
+    @include int(bold, 3.75rem);
+  }
+  @media screen and (max-width: 768px) {
+    @include int(bold, 3.25rem);
+  }
+  @media screen and (max-width: 576px) {
+    @include int(bold, 2.75rem);
+  }
+  @media screen and (max-width: 390px) {
+    @include int(bold, 1.75rem);
+  }
+}
+
+.brandsContainer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0rem;
+  grid-row-gap: 2rem;
+  background-color: $white_color;
+  border-radius: 2.1875rem;
+  margin: 3rem 0;
+}
+
+.brandsVersaceBox {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  height: 25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2.1875rem;
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: $black_color;
+}
+
+.versaceLogo {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+}
+
+.versaceLogoSvg {
+  width: 12.5rem;
+  height: auto;
+  color: white;
+}
+
+.versacePng {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  opacity: 0.1;
+  transition: all 0.3s ease-in-out;
+}
+
+.brandsZaraBox {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: 25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2.1875rem;
+  grid-area: 2 / 1 / 3 / 2;
+  background-color: $black_color;
+}
+
+.zaraLogo {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+}
+
+.zaraLogoSvg {
+  width: 12.5rem;
+  height: auto;
+  color: white;
+}
+
+.zaraPng {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  opacity: 0.1;
+  transition: all 0.3s ease-in-out;
+}
+
+.brandsGucciBox {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  height: 25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2.1875rem;
+  grid-area: 3 / 1 / 4 / 2;
+  background-color: $black_color;
+}
+
+.gucciLogo {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+}
+
+.gucciLogoSvg {
+  width: 12.5rem;
+  height: auto;
+  color: white;
+}
+
+.gucciPng {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  opacity: 0.1;
+  transition: all 0.3s ease-in-out;
+}
+
+.brandsCalvinBox {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: 25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2.1875rem;
+  grid-area: 4 / 1 / 5 / 2;
+  background-color: $black_color;
+}
+
+.calvinLogo {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+}
+
+.calvinLogoSvg {
+  width: 12.5rem;
+  height: auto;
+  color: white;
+}
+
+.calvinPng {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  opacity: 0.1;
+  transition: all 0.3s ease-in-out;
+}
+
+.brandsPradaBox {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  height: 25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2.1875rem;
+  grid-area: 5 / 1 / 6 / 2;
+  background-color: $black_color;
+}
+
+.pradaLogo {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+}
+
+.pradaLogoSvg {
+  width: 12.5rem;
+  height: auto;
+  color: white;
+}
+
+.pradaPng {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  opacity: 0.1;
+  transition: all 0.3s ease-in-out;
+}

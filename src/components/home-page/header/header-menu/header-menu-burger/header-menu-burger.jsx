@@ -89,9 +89,9 @@ const HeaderMenuBurger = () => {
             </Link>
           </li>
           <li className={styles.windowMenuItem}>
-            <a className={styles.menuListItemA} href="#">
+            <Link to="/brands" onClick={handleBurgerToggle} className={styles.menuListItemA} >
               Brands
-            </a>
+            </Link>
           </li>
           <li className={styles.windowMenuItem}>
             <svg
