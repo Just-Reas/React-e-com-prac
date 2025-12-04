@@ -1,8 +1,13 @@
 import BrandsPage from "../components/brands-page/brands-page"
+import Line from "../components/home-page/line/line"
 
 const Brands = () =>{
     return(
-        <BrandsPage />
+        <main>
+            <Line />
+            <BrandsPage />
+        </main>
+
     )
 }
 

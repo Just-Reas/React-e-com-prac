@@ -6,23 +6,21 @@ import Shop from "./pages/Shop";
 import Sale from "./pages/Sale";
 import Arrivals from "./pages/Arrivals";
 import Brands from "./pages/Brands";
+import Log from "./pages/Log";
 
 function App() {
   return (
     <Router>
-      <header>
-        <Header />
-      </header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/sale" element={<Sale />} />
-          <Route path="/arrivals" element={<Arrivals />} />
-          <Route path="/brands" element={<Brands />} />
-        </Routes>
-      <footer>
-        <Footer />
-      </footer>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/sale" element={<Sale />} />
+        <Route path="/arrivals" element={<Arrivals />} />
+        <Route path="/brands" element={<Brands />} />
+        <Route path="/log" element={<Log />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }

@@ -1,8 +1,14 @@
 import styles from "./header-menu-buttons.module.scss";
 import { useHeaderMenu } from "./utils/header-menu-script";
+import { useNavigate } from "react-router-dom";
 
 const HeaderMenuButtons = () => {
+  const navigate = useNavigate();
   const { handleSearchOpen, handleSearchClose } = useHeaderMenu();
+
+  const handleLogClick = () => {
+    navigate("/log");
+  };
 
   return (
     <div className={styles.menuButtons}>
@@ -60,7 +66,7 @@ const HeaderMenuButtons = () => {
         </svg>
       </button>
 
-      <button className={styles.menuProfile} id="profile-button">
+      <button className={styles.menuProfile} onClick={handleLogClick} id="profile-button">
         <svg
           className={styles.menuProfileSvg}
           width="21"

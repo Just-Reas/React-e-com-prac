@@ -12,16 +12,13 @@
 .brandsText {
   width: 100%;
   text-align: center;
-  @include int(bold, 5.25rem);
-  margin-top: 2.5rem;
-  @media screen and (max-width: 992px) {
-    @include int(bold, 3.75rem);
-  }
+  @include int(bold, 3.25rem);
+  margin: 1.5625rem 0;
   @media screen and (max-width: 768px) {
-    @include int(bold, 3.25rem);
+    @include int(bold, 3rem);
   }
-  @media screen and (max-width: 576px) {
-    @include int(bold, 2.75rem);
+  @media screen and (max-width: 568px) {
+    @include int(bold, 2.25rem);
   }
   @media screen and (max-width: 390px) {
     @include int(bold, 1.75rem);
@@ -38,6 +35,7 @@
   background-color: $white_color;
   border-radius: 2.1875rem;
   margin: 3rem 0;
+  perspective: 1000px;
 }
 
 .brandsVersaceBox {
@@ -51,6 +49,9 @@
   border-radius: 2.1875rem;
   grid-area: 1 / 1 / 2 / 2;
   background-color: $black_color;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 .versaceLogo {
@@ -72,6 +73,10 @@
   width: 12.5rem;
   height: auto;
   color: white;
+  @media screen and (max-width:390px){
+    width: unset;
+    max-width: 12.5rem;
+  }
 }
 
 .versacePng {
@@ -95,6 +100,9 @@
   border-radius: 2.1875rem;
   grid-area: 2 / 1 / 3 / 2;
   background-color: $black_color;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 .zaraLogo {
@@ -116,6 +124,10 @@
   width: 12.5rem;
   height: auto;
   color: white;
+  @media screen and (max-width:390px){
+    width: unset;
+    max-width: 12.5rem;
+  }
 }
 
 .zaraPng {
@@ -139,6 +151,9 @@
   border-radius: 2.1875rem;
   grid-area: 3 / 1 / 4 / 2;
   background-color: $black_color;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 .gucciLogo {
@@ -160,6 +175,10 @@
   width: 12.5rem;
   height: auto;
   color: white;
+  @media screen and (max-width:390px){
+    width: unset;
+    max-width: 12.5rem;
+  }
 }
 
 .gucciPng {
@@ -183,6 +202,9 @@
   border-radius: 2.1875rem;
   grid-area: 4 / 1 / 5 / 2;
   background-color: $black_color;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 .calvinLogo {
@@ -204,6 +226,10 @@
   width: 12.5rem;
   height: auto;
   color: white;
+  @media screen and (max-width:390px){
+    width: unset;
+    max-width: 12.5rem;
+  }
 }
 
 .calvinPng {
@@ -227,6 +253,9 @@
   border-radius: 2.1875rem;
   grid-area: 5 / 1 / 6 / 2;
   background-color: $black_color;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 .pradaLogo {
@@ -248,6 +277,10 @@
   width: 12.5rem;
   height: auto;
   color: white;
+  @media screen and (max-width:390px){
+    width: unset;
+    max-width: 12.5rem;
+  }
 }
 
 .pradaPng {
@@ -258,4 +291,897 @@
   height: auto;
   opacity: 0.1;
   transition: all 0.3s ease-in-out;
+}
+
+.brandsVersaceBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    height: 25rem;
+    background-color: unset;
+    border-radius: 2.1875rem;
+    display: flex;
+    position: relative;
+    grid-area: 1 / 1 / 2 / 2;
+    overflow: hidden;
+
+    perspective: 1000px;
+
+    .flipContainer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    &.flipped {
+      .flipContainer {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+.flipContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.brandsVersaceBoxFront {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  align-items: start;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  justify-content: end;
+  background-color: $black_color;
+  cursor: pointer;
+}
+
+.brandsVersaceBoxBack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.6s ease-in-out;
+  align-items: start;
+  overflow: hidden;
+  background-color: $black_color;
+  transform: rotateX(180deg);
+  z-index: 10;
+  backface-visibility: hidden;
+  justify-content: space-between;
+}
+
+.versaceLogoFlipperFront {
+  z-index: 12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.versaceLogoFlipperBack {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.versacePngFlipper {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  transform: scale(120%) translateY(5%);
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  pointer-events: none;
+  @media screen and (max-width:576px){
+    transform: scale(165%) translateY(20%) translateX(10%);
+  }
+  @media screen and (max-width: 390px){
+    transform: scale(240%) translateY(50%) translateX(10%);
+  }
+}
+
+
+.buttonContainer {
+  display: flex;
+  position: relative;
+  justify-content: end;
+  width: 100%;
+  @media screen and (max-width:390px){
+    justify-content: center;
+  }
+}
+
+.brandButton {
+  z-index: 10;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 2.5rem 5rem;
+  background-color: $black_color;
+  @include sato(bold, 2rem);
+  color: $gray_color;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  border: unset;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:active {
+    color: $white_color;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+      0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  @media screen and (max-width:390px){
+    justify-content: center;
+    padding: 1.5rem 2.5rem;
+    width: 100%;
+    border-top-left-radius: unset;
+  }
+}
+
+.brandsZaraBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    display: flex;
+    position: relative;
+    grid-area: 2 / 1 / 3 / 2;
+  }
+}
+
+.brandsGucciBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    display: flex;
+    position: relative;
+    grid-area: 3 / 1 / 4 / 2;
+  }
+}
+
+.brandsCalvinBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    display: flex;
+    position: relative;
+    grid-area: 4 / 1 / 5 / 2;
+  }
+}
+
+.brandsPradaBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    display: flex;
+    position: relative;
+    grid-area: 5 / 1 / 6 / 2;
+  }
+}
+
+
+.brandsZaraBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    height: 25rem;
+    background-color: unset;
+    border-radius: 2.1875rem;
+    display: flex;
+    position: relative;
+    grid-area: 2 / 1 / 3 / 2;
+    overflow: hidden;
+
+    perspective: 1000px;
+
+    .flipContainerB {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    &.flipped {
+      .flipContainerB {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+.brandsZaraBoxFront {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  align-items: start;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  justify-content: start;
+  background-color: $black_color;
+  cursor: pointer;
+  
+}
+
+.brandsZaraBoxBack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.6s ease-in-out;
+  align-items: end;
+  overflow: hidden;
+  background-color: $black_color;
+  transform: rotateX(180deg);
+  z-index: 10;
+  backface-visibility: hidden;
+  justify-content: space-between;
+}
+
+.zaraLogoFlipperFront {
+  z-index: 12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.zaraLogoFlipperBack {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.flipContainerB {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.zaraPngFlipper {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  transform: scale(120%) translateY(5%);
+  height: auto;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  pointer-events: none;
+  @media screen and (max-width:576px){
+    transform: scale(165%) translateY(20%);
+  }
+  @media screen and (max-width:390px){
+    transform: scale(240%) translateY(45%);
+  }
+}
+
+.buttonContainerB {
+  display: flex;
+  position: relative;
+  justify-content: start;
+  width: 100%;
+  @media screen and (max-width:390px){
+    justify-content: center;
+  }
+}
+
+.brandButtonB {
+  z-index: 10;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 2.5rem 5rem;
+  background-color: $black_color;
+  @include sato(bold, 2rem);
+  color: $gray_color;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  border: unset;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:active {
+    color: $white_color;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+      0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  @media screen and (max-width:390px){
+    justify-content: center;
+    padding: 1.5rem 2.5rem;
+    width: 100%;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+  }
+}
+
+.brandsGucciBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    height: 25rem;
+    background-color: unset;
+    border-radius: 2.1875rem;
+    display: flex;
+    position: relative;
+    grid-area: 3 / 1 / 4 / 2;
+    overflow: hidden;
+    perspective: 1000px;
+
+    .flipContainerC {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    &.flipped {
+      .flipContainerC {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+.flipContainerC {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.brandsGucciBoxFront {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  align-items: start;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  justify-content: end;
+  background-color: $black_color;
+  cursor: pointer;
+}
+
+.brandsGucciBoxBack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.6s ease-in-out;
+  align-items: start;
+  overflow: hidden;
+  background-color: $black_color;
+  transform: rotateX(180deg);
+  z-index: 10;
+  backface-visibility: hidden;
+  justify-content: space-between;
+}
+
+.gucciLogoFlipperFront {
+  z-index: 12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.gucciLogoFlipperBack {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.gucciPngFlipper {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  transform: scale(120%) translateY(5%);
+  height: auto;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  pointer-events: none;
+  @media screen and (max-width:576px){
+    transform: scale(200%) translateY(25%);
+  }
+  @media screen and (max-width:390px){
+    transform: scale(260%) translateY(45%);
+  }
+}
+
+.buttonContainerC {
+  display: flex;
+  position: relative;
+  justify-content: end;
+  width: 100%;
+  @media screen and (max-width:390px){
+    justify-content: center;
+  }
+}
+
+.brandButtonC {
+  z-index: 10;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 2.5rem 5rem;
+  background-color: $black_color;
+  @include sato(bold, 2rem);
+  color: $gray_color;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  border: unset;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:active {
+    color: $white_color;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+      0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  @media screen and (max-width:390px){
+    justify-content: center;
+    padding: 1.5rem 2.5rem;
+    width: 100%;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+  }
+}
+
+.brandsCalvinBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    height: 25rem;
+    background-color: unset;
+    border-radius: 2.1875rem;
+    display: flex;
+    position: relative;
+    grid-area: 4 / 1 / 5 / 2;
+    overflow: hidden;
+    perspective: 1000px;
+
+    .flipContainerD {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    &.flipped {
+      .flipContainerD {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+.flipContainerD {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.brandsCalvinBoxFront {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  align-items: start;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  justify-content: start;
+  background-color: $black_color;
+  cursor: pointer;
+}
+
+.brandsCalvinBoxBack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.6s ease-in-out;
+  align-items: end;
+  overflow: hidden;
+  background-color: $black_color;
+  transform: rotateX(180deg);
+  z-index: 10;
+  backface-visibility: hidden;
+  justify-content: space-between;
+}
+
+.calvinLogoFlipperFront {
+  z-index: 12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.calvinLogoFlipperBack {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.calvinPngFlipper {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  transform: scale(120%) translateY(5%);
+  pointer-events: none;
+  @media screen and (max-width:576px){
+    transform: scale(200%) translateY(25%) translateX(-20%);
+  }
+  @media screen and (max-width:390px){
+    transform: scale(240%) translateY(45%) translateX(-20%);
+  }
+}
+
+.buttonContainerD {
+  display: flex;
+  position: relative;
+  justify-content: start;
+  width: 100%;
+  @media screen and (max-width:390px){
+    justify-content: center;
+  }
+}
+
+.brandButtonD {
+  z-index: 10;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 2.5rem 5rem;
+  background-color: $black_color;
+  @include sato(bold, 2rem);
+  color: $gray_color;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  border: unset;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:active {
+    color: $white_color;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+      0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  @media screen and (max-width:390px){
+    justify-content: center;
+    padding: 1.5rem 2.5rem;
+    width: 100%;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+  }
+}
+
+.brandsPradaBoxFlipper {
+  display: none;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    height: 25rem;
+    background-color: unset;
+    border-radius: 2.1875rem;
+    display: flex;
+    position: relative;
+    grid-area: 5 / 1 / 6 / 2;
+    overflow: hidden;
+    perspective: 1000px;
+
+    .flipContainerE {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    &.flipped {
+      .flipContainerE {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+.flipContainerE {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.brandsPradaBoxFront {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  align-items: start;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  justify-content: end;
+  background-color: $black_color;
+  cursor: pointer;
+}
+
+.brandsPradaBoxBack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.6s ease-in-out;
+  align-items: start;
+  overflow: hidden;
+  background-color: $black_color;
+  transform: rotateX(180deg);
+  z-index: 10;
+  backface-visibility: hidden;
+  justify-content: space-between;
+}
+
+.pradaLogoFlipperFront {
+  z-index: 12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 2.1875rem;
+  border-top-right-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.pradaLogoFlipperBack {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  width: 16.25rem;
+  height: 8.75rem;
+  background-color: $black_color;
+  @media screen and (max-width: 390px){
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    width: 100%;
+    height: 5.625rem;
+  }
+}
+
+.pradaPngFlipper {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  transform: scale(160%) translateY(15%);
+  pointer-events: none;
+  @media screen and (max-width:576px){
+    transform: scale(240%) translateY(25%) translateX(-20%);
+  }
+  @media screen and (max-width:390px){
+    transform: scale(320%) translateY(60%) translateX(-15%);
+  }
+}
+
+.buttonContainerE {
+  display: flex;
+  position: relative;
+  justify-content: end;
+  width: 100%;
+  @media screen and (max-width:390px){
+    justify-content: center;
+  }
+}
+
+.brandButtonE {
+  z-index: 10;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 2.5rem 5rem;
+  background-color: $black_color;
+  @include sato(bold, 2rem);
+  color: $gray_color;
+  border-bottom-right-radius: 2.1875rem;
+  border-top-left-radius: 2.1875rem;
+  border: unset;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:active {
+    color: $white_color;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+      0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  @media screen and (max-width:390px){
+    justify-content: center;
+    padding: 1.5rem 2.5rem;
+    width: 100%;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+  }
 }

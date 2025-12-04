@@ -1,0 +1,207 @@
+.logInner {
+  width: 100%;
+  display: flex;
+  background-color: #f2f0f1;
+}
+
+.logBox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-wrap: nowrap;
+  @media screen and (max-width: 992px) {
+    position: relative;
+    justify-content: center;
+  }
+}
+
+.logPngContainer {
+  display: flex;
+  max-width: 50%;
+  height: auto;
+  max-height: 50rem;
+  @media screen and (max-width: 992px) {
+    position: relative;
+    filter: blur(4px);
+  }
+}
+
+.imgMain {
+  display: flex;
+  max-width: 100%;
+  height: auto;
+  @media screen and (max-width:992px){
+  }
+}
+
+.logButtonsInner {
+  display: flex;
+  max-width: 37.5rem;
+  margin: 0 auto;
+  background-color: $black_color;
+  border-radius: 38px;
+  border: 4px solid #f2f0f1;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    border: 8px solid $black_color;
+    .buttonLine {
+      width: 100%;
+      background-color: $white_color;
+    }
+
+    .buttonText {
+      color: $white_color;
+      text-shadow: 0 0 5px #ffffff70, 0 0 10px #ffffff70, 0 0 15px #ffffff70,
+        0 0 20px rgba(255, 255, 255, 0.329);
+    }
+
+    .buttonLogin,
+    .buttonRegister {
+      border: 2px solid $white_color;
+
+      &:hover {
+        transition: unset;
+        color: $white_color;
+        text-shadow: 0 0 5px #ffffff70, 0 0 10px #ffffff70, 0 0 15px #ffffff70,
+          0 0 20px rgba(255, 255, 255, 0.329);
+        &::before {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      &:active {
+        border: 2px solid $gray_color;
+        color: $gray_color;
+        text-shadow: unset;
+        &::before {
+          filter: brightness(0) invert(0.5);
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    position: absolute;
+    border: 4px solid $black_color;
+  }
+}
+
+.logButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 2.5rem;
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+  padding-bottom: 4.5rem;
+  @media screen and (max-width: 992px) {
+    padding-top: 2.5rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+.buttonText {
+  display: flex;
+  color: $gray_color;
+  @include int(bold, 2rem);
+  margin-bottom: 0.625rem;
+  transition: all 0.3s ease-in-out;
+  @media screen and (max-width: 992px) {
+    color: $white_color;
+    text-shadow: 0 0 5px #ffffff70, 0 0 10px #ffffff70, 0 0 15px #ffffff70,
+      0 0 20px rgba(255, 255, 255, 0.329);
+  }
+}
+
+.buttonLine {
+  width: 10%;
+  margin: 0 auto;
+  height: 2px;
+  background-color: $gray_color;
+  margin-bottom: 0.625rem;
+  transition: all 0.3s ease-in-out;
+  @media screen and (max-width: 992px) {
+    width: 90%;
+    background-color: $white_color;
+  }
+}
+
+.buttonLogin,
+.buttonRegister {
+  position: relative;
+  display: flex;
+  width: 280px;
+  height: 2.8125rem;
+  border: 2px solid $gray_color;
+  background-color: $black_color;
+  color: $gray_color;
+  @include sato(bold, 1.25rem);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.buttonLogin {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background-image: url("../../../public/log/sign-in.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: brightness(0) invert(0.5);
+  }
+  @media screen and (max-width: 992px) {
+    border: 2px solid $white_color;
+    color: $white_color;
+
+    &::before {
+      filter: brightness(0) invert(1);
+    }
+
+    &:active {
+      &::before {
+        filter: brightness(0) invert(0.5);
+      }
+    }
+  }
+}
+
+.buttonRegister {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background-image: url("../../../public/log/sign-up.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: brightness(0) invert(0.5);
+  }
+  @media screen and (max-width: 992px) {
+    border: 2px solid $white_color;
+    color: $white_color;
+
+    &::before {
+      filter: brightness(0) invert(1);
+    }
+
+    &:active {
+      &::before {
+        filter: brightness(0) invert(0.5);
+      }
+    }
+  }
+}
