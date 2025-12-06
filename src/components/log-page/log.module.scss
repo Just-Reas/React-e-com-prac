@@ -9,10 +9,19 @@
   width: 100%;
   align-items: center;
   flex-wrap: nowrap;
+  min-height: 43.75rem;
+  overflow: hidden;
   @media screen and (max-width: 992px) {
     position: relative;
     justify-content: center;
     overflow: hidden;
+    min-height: 800px;
+  }
+  @media screen and (max-width:768px){
+    min-height: 825px;
+  }
+  @media screen and (max-width: 576px){
+    min-height: 850px;
   }
 }
 
@@ -25,6 +34,7 @@
     position: relative;
     filter: blur(4px);
     min-height: 43.75rem;
+    transform: translateY(8%) scale(120%);
     &::before {
       content: "";
       position: absolute;
@@ -37,15 +47,15 @@
       transform: translateX(-50%) translateY(2%);
     }
   }
-  @media screen and (max-width: 576px){
-    min-height: 31.25rem;
-  }
 }
 
 .imgMain {
   display: flex;
   max-width: 100%;
   height: auto;
+  @media screen and (max-width:1200px){
+    transform: scale(120%) translateY(10%);
+  }
   @media screen and (max-width: 992px) {
     display: none;
   }
@@ -53,7 +63,8 @@
 
 .container {
   display: flex;
-  max-width: 37.5rem;
+  z-index: 10;
+  max-width: 31.25rem;
   margin: 0 auto;
   background-color: $black_color;
   border-radius: 38px;
@@ -96,17 +107,17 @@
       }
     }
   }
-  @media screen and (max-width:1200px){
+  @media screen and (max-width: 1200px) {
     margin: 0 1rem;
   }
   @media screen and (max-width: 992px) {
     position: absolute;
     border: 4px solid $black_color;
   }
-  @media screen and (max-width:576px){
+  @media screen and (max-width: 576px) {
     width: 100%;
   }
-  @media screen and (max-width: 390px){
+  @media screen and (max-width: 390px) {
     margin: 0;
   }
 }
@@ -126,10 +137,10 @@
     padding-right: 6rem;
     padding-bottom: 4.5rem;
   }
-  @media screen and (max-width:576px){
+  @media screen and (max-width: 576px) {
     padding: 4rem 2rem;
   }
-  @media screen and (max-width:390px){
+  @media screen and (max-width: 390px) {
     padding: 3rem 1rem;
   }
 }
@@ -146,9 +157,12 @@
     text-shadow: 0 0 5px #ffffff70, 0 0 10px #ffffff70, 0 0 15px #ffffff70,
       0 0 20px rgba(255, 255, 255, 0.329);
   }
-  @media screen and (max-width:768px){
+  @media screen and (max-width: 768px) {
     @include int(bold, 2.5rem);
     margin-bottom: 1.25rem;
+  }
+  @media screen and (max-width:390px){
+    @include int(bold, 2rem);
   }
 }
 
@@ -171,7 +185,7 @@
   display: flex;
   width: 17.5rem;
   height: 2.8125rem;
-  border: .125rem solid $gray_color;
+  border: 0.125rem solid $gray_color;
   background-color: $black_color;
   color: $gray_color;
   @include sato(bold, 1.25rem);
@@ -179,11 +193,11 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     padding: 35px 0;
     width: 20rem;
   }
-  @media screen and (max-width: 576px){
+  @media screen and (max-width: 576px) {
     width: 100%;
   }
 }
@@ -218,7 +232,7 @@
       }
     }
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-bottom: 2rem;
   }
 }
@@ -255,14 +269,16 @@
 
 .containerLogin {
   display: none;
-  max-width: 37.5rem;
+  width: 100%;
+  z-index: 10;
+  max-width: 31.25rem;
   margin: 0 auto;
   background-color: $black_color;
   border-radius: 38px;
   border: 4px solid #f2f0f1;
   transition: all 0.1s ease-in-out;
   &:hover {
-    border: 8px solid $black_color;
+    border: 4px solid $black_color;
     .buttonLine {
       width: 100%;
       background-color: $white_color;
@@ -273,6 +289,19 @@
         0 0 20px rgba(255, 255, 255, 0.329);
     }
   }
+   @media screen and (max-width: 1200px) {
+    margin: 0 1rem;
+  }
+  @media screen and (max-width: 992px) {
+    position: absolute;
+    border: 4px solid $black_color;
+  }
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 390px) {
+    margin: 0;
+  }
 }
 
 .containerLoginInner {
@@ -280,62 +309,242 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 2.5rem;
-  padding-left: 7.5rem;
-  padding-right: 7.5rem;
-  padding-bottom: 4.5rem;
+  padding: 1.25rem 5rem;
+  @media screen and (max-width: 576px) {
+    padding: 1.25rem 1rem;
+  }
 }
 
 .loginText {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: $gray_color;
+  @include int(bold, 2.4rem);
+  margin-bottom: 0.625rem;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  @media screen and (max-width: 992px) {
+    text-shadow: 0 0 10px #ffffff70, 0 0 20px #ffffff70, 0 0 30px #ffffff70,
+      0 0 40px rgba(255, 255, 255, 0.329);
+    color: $white_color;
+  }
+  @media screen and (max-width:390px){
+    @include int(bold, 2rem);
+  }
+}
+
+.containerLogin {
+  transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+}
+
+.loginForm,
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.emailContainer {
+  transform-origin: left center;
+  transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+  position: relative;
+  display: flex;
+  align-items: end;
+  height: 80px;
+  margin-top: 1.25rem;
+  width: 100%;
+
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label {
+    transform: translateY(-50px);
+    color: $white_color;
+  }
+}
+
+.passwordContainer {
+  transform-origin: left center;
+  transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+  position: relative;
+  display: flex;
+  align-items: end;
+  height: 80px;
+  margin-top: 1.25rem;
+  width: 100%;
+
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label {
+    transform: translateY(-50px);
+    color: $white_color;
+  }
+}
+
+.label {
+  display: flex;
+  position: absolute;
+  transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+  transform-origin: left center;
+  @include sato(bold, 1.25rem);
+  color: $white_color;
+  z-index: 1;
+  margin-left: 20px;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.input {
+  position: relative;
+  background-color: $black_color;
+  border: 2px solid $gray_color;
+  border-radius: 38px;
+  padding: 10px 20px;
+  color: $white_color;
+  z-index: 0;
+  width: 100%;
+  @include sato(bold, 1rem);
+  &:focus {
+    outline: none;
+    border: 2px solid $white_color;
+    color: $white_color;
+  }
+}
+
+.loginButton {
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  width: 75%;
+  height: 3.75rem;
+  border-radius: 2.375rem;
+  background-color: $black_color;
+  border: 2px solid $gray_color;
+  color: $white_color;
+  transition: all 0.2s ease-in-out;
+  @include sato(bold, 1.25rem);
+  &:hover {
+    border: 2px solid $white_color;
+    text-shadow: 0 0 10px #ffffff70, 0 0 20px #ffffff70, 0 0 30px #ffffff70,
+      0 0 40px rgba(255, 255, 255, 0.329);
+  }
+  &:active {
+    transition: none;
+    border: 2px solid $gray_color;
+    color: $gray_color;
+    text-shadow: none;
+  }
+  @media screen and (max-width:992px){
+    text-shadow: 0 0 10px #ffffff70, 0 0 20px #ffffff70, 0 0 30px #ffffff70,
+      0 0 40px rgba(255, 255, 255, 0.329);
+      color: $white_color;
+  }
+}
+
+.containerRegister {
+  display: none;
+  z-index: 10;
+  width: 100%;
+  max-width: 31.25rem;
+  margin: 0 auto;
+  background-color: $black_color;
+  border-radius: 38px;
+  border: 4px solid #f2f0f1;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    border: 4px solid $black_color;
+    .buttonLine {
+      width: 100%;
+      background-color: $white_color;
+    }
+    .registerText {
+      color: $white_color;
+      text-shadow: 0 0 5px #ffffff70, 0 0 10px #ffffff70, 0 0 15px #ffffff70,
+        0 0 20px rgba(255, 255, 255, 0.329);
+    }
+  }
+   @media screen and (max-width: 1200px) {
+    margin: 0 1rem;
+  }
+  @media screen and (max-width: 992px) {
+    position: absolute;
+    border: 4px solid $black_color;
+  }
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 390px) {
+    margin: 0;
+  }
+}
+
+.containerRegisterInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem 5rem;
+  @media screen and (max-width: 576px) {
+    padding: 1.25rem 1rem;
+  }
+}
+
+.registerText {
   display: flex;
   color: $gray_color;
   @include int(bold, 2rem);
   margin-bottom: 0.625rem;
   transition: all 0.3s ease-in-out;
   text-align: center;
-}
-
-.containerLogin{
-  transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
-}
-
-.emailContainer{
-  transform-origin: left center;
-  transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
-  position: relative;
-  display: flex;
-  align-items: end;
-  height: 80px;
-
-  &:focus-within {
-    .label {
-      transform: translateY(-50px);
-      color: $white_color;
-    }
+  @media screen and (max-width: 992px) {
+    color: $white_color;
+    text-shadow: 0 0 5px #ffffff70, 0 0 10px #ffffff70, 0 0 15px #ffffff70,
+      0 0 20px rgba(255, 255, 255, 0.329);
+  }
+  @media screen and (max-width: 768px) {
+    @include int(bold, 2.5rem);
+    margin-bottom: 1.25rem;
+  }
+  @media screen and (max-width:390px){
+    @include int(bold, 2rem);
   }
 }
 
-.label{
-  display: flex;
-  position: absolute;
-  transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
+.nameRegContainer {
   transform-origin: left center;
-  @include sato(bold,1.25rem);
-  color: $white_color;
-  z-index: 1;
-  margin-left: 20px;
-  transform: translateY(-10px);
-}
-
-.input{
+  transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
   position: relative;
-  background-color: $black_color;
-  border: 2px solid $white_color;
-  border-radius: 38px;
-  padding: 10px 20px;
-  z-index: 0;
-  &:focus{
-    outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 80px;
+  margin-top: 1.25rem;
+  width: 100%;
+
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label {
+    transform: translateY(-50px);
     color: $white_color;
   }
+}
+
+.goBack{
+  color: $white_color;
+  @include sato(normal,1rem);
+  cursor: pointer;
+  &:hover{
+    text-decoration: underline;
+  }
+  &:active{
+    color: $gray_color;
+  }
+}
+
+.errorMessage{
+  margin-top: 10px;
+  color: red;
+  @include sato(normal,16px)
 }
