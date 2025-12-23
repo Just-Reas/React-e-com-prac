@@ -13,7 +13,10 @@ const HeaderDiscount = () => {
             <a href="#">Sign Up Now</a>
           </div>
 
-          <button className={styles.discountButton} onClick={handleDiscountClose}>
+          <button
+            className={styles.discountButton}
+            onClick={handleDiscountClose}
+          >
             <svg
               width="14"
               height="14"

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./brands-page.module.scss";
 import { useMediaQuery } from "react-responsive";
 
@@ -8,148 +8,7 @@ const BrandsPage = () => {
   const [isFlippedC, setIsFlippedC] = useState(false);
   const [isFlippedD, setIsFlippedD] = useState(false);
   const [isFlippedE, setIsFlippedE] = useState(false);
-
-  const isLaptop = useMediaQuery({ minWidth: 992 });
-  const linkRef1 = useRef(false);
-  const linkRef2 = useRef(false);
-  const linkRef3 = useRef(false);
-  const linkRef4 = useRef(false);
-  const linkRef5 = useRef(false);
   const [isActive, setIsActive] = useState(false);
-
-  // Hover handlers
-  const HoverA = () => {
-    const linkA = document.getElementById("link-a");
-    linkRef1.current = !linkRef1.current;
-    if (isLaptop) {
-      if (linkRef1.current) {
-        linkA.style.opacity = "1";
-        linkA.style.transform = "scale(105%)";
-      } else {
-        linkA.style.opacity = "0.1";
-        linkA.style.transform = "scale(100%)";
-      }
-    }
-  };
-
-  const HoverB = () => {
-    const linkB = document.getElementById("link-b");
-    linkRef2.current = !linkRef2.current;
-    if (linkRef2.current) {
-      linkB.style.opacity = "1";
-      linkB.style.transform = "scale(105%)";
-    } else {
-      linkB.style.opacity = "0.1";
-      linkB.style.transform = "scale(100%)";
-    }
-  };
-
-  const HoverC = () => {
-    const linkC = document.getElementById("link-c");
-    linkRef3.current = !linkRef3.current;
-    if (linkRef3.current) {
-      linkC.style.opacity = "1";
-      linkC.style.transform = "scale(105%)";
-    } else {
-      linkC.style.opacity = "0.1";
-      linkC.style.transform = "scale(100%)";
-    }
-  };
-
-  const HoverD = () => {
-    const linkD = document.getElementById("link-d");
-    linkRef4.current = !linkRef4.current;
-    if (linkRef4.current) {
-      linkD.style.opacity = "1";
-      linkD.style.transform = "scale(105%)";
-    } else {
-      linkD.style.opacity = "0.1";
-      linkD.style.transform = "scale(100%)";
-    }
-  };
-
-  const HoverE = () => {
-    const linkE = document.getElementById("link-e");
-    linkRef5.current = !linkRef5.current;
-    if (linkRef5.current) {
-      linkE.style.opacity = "1";
-      linkE.style.transform = "scale(105%)";
-    } else {
-      linkE.style.opacity = "0.1";
-      linkE.style.transform = "scale(100%)";
-    }
-  };
-
-  // Card close handlers
-  const cardCloseA = () => {
-    const button = document.getElementById("brand-buttonA");
-    button.style.color = "#ffffff";
-    button.style.textShadow =
-      "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(255, 255, 255, 0.5)";
-    setTimeout(() => {
-      setIsFlipped(false);
-    }, 300);
-    setTimeout(() => {
-      button.style.color = "#949494";
-      button.style.textShadow = "unset";
-    }, 500);
-  };
-
-  const cardCloseB = () => {
-    const button = document.getElementById("brand-buttonB");
-    button.style.color = "#ffffff";
-    button.style.textShadow =
-      "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(255, 255, 255, 0.5)";
-    setTimeout(() => {
-      setIsFlippedB(false);
-    }, 300);
-    setTimeout(() => {
-      button.style.color = "#949494";
-      button.style.textShadow = "unset";
-    }, 500);
-  };
-
-  const cardCloseC = () => {
-    const button = document.getElementById("brand-buttonC");
-    button.style.color = "#ffffff";
-    button.style.textShadow =
-      "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(255, 255, 255, 0.5)";
-    setTimeout(() => {
-      setIsFlippedC(false);
-    }, 300);
-    setTimeout(() => {
-      button.style.color = "#949494";
-      button.style.textShadow = "unset";
-    }, 500);
-  };
-
-  const cardCloseD = () => {
-    const button = document.getElementById("brand-buttonD");
-    button.style.color = "#ffffff";
-    button.style.textShadow =
-      "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(255, 255, 255, 0.5)";
-    setTimeout(() => {
-      setIsFlippedD(false);
-    }, 300);
-    setTimeout(() => {
-      button.style.color = "#949494";
-      button.style.textShadow = "unset";
-    }, 500);
-  };
-
-  const cardCloseE = () => {
-    const button = document.getElementById("brand-buttonE");
-    button.style.color = "#ffffff";
-    button.style.textShadow =
-      "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(255, 255, 255, 0.5)";
-    setTimeout(() => {
-      setIsFlippedE(false);
-    }, 300);
-    setTimeout(() => {
-      button.style.color = "#949494";
-      button.style.textShadow = "unset";
-    }, 500);
-  };
 
   return (
     <div className={styles.brandsPage}>
@@ -159,8 +18,8 @@ const BrandsPage = () => {
           <div className={styles.brandsContainer}>
             <a
               className={styles.brandsVersaceBox}
-              onMouseEnter={HoverA}
-              onMouseLeave={HoverA}
+              onMouseEnter={() => handleMouseEnter("versace")}
+              onMouseLeave={() => handleMouseLeave("versace")}
               href="#"
               id="cont-link-a"
             >
@@ -225,7 +84,10 @@ const BrandsPage = () => {
                   />
                 </div>
                 <div className={styles.brandsVersaceBoxBack}>
-                  <div className={styles.versaceLogoFlipperBack}>
+                  <div
+                    className={styles.versaceLogoFlipperBack}
+                    onClick={() => setIsFlipped(false)}
+                  >
                     <svg
                       className={styles.versaceLogoSvg}
                       width="167"
@@ -251,7 +113,7 @@ const BrandsPage = () => {
                         isActive ? styles.active : ""
                       }`}
                       id="brand-buttonA"
-                      onClick={cardCloseA}
+                      // onClick={cardClose}
                     >
                       VIEW
                     </button>
@@ -267,8 +129,8 @@ const BrandsPage = () => {
             </div>
 
             <a
-              onMouseEnter={HoverB}
-              onMouseLeave={HoverB}
+              // onMouseEnter={HoverB}
+              // onMouseLeave={HoverB}
               className={styles.brandsZaraBox}
               href="#"
             >
@@ -310,16 +172,16 @@ const BrandsPage = () => {
                     <svg
                       className={styles.versaceLogoSvg}
                       width="91"
-                  height="38"
-                  viewBox="0 0 91 38"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M86.3324 36.8604L72.8501 0.0243821L72.841 0H72.5749L69.7985 7.56966L64.7441 21.3504L64.7323 21.3395C62.9806 19.8056 60.5091 18.8468 57.3965 18.4897L56.4472 18.3924L57.389 18.2726C62.5219 17.3573 65.9723 14.1403 65.9723 10.2644C65.9723 4.94948 60.9348 1.2397 53.7189 1.2397H38.7052V1.5088H43.0678V28.9721L32.4727 0.0242918L32.4632 0H32.1971L29.4207 7.56966L18.7123 36.7655L18.6464 36.7731C18.4634 36.7955 18.2824 36.8133 18.1034 36.8268C17.834 36.8477 17.5662 36.8603 17.2976 36.8603H6.47765L27.0448 1.50871L27.1977 1.24304H2.04322V12.1789H2.31013C2.35745 6.85219 5.48348 1.50871 12.3902 1.50871H20.7226L0 37.1251H27.9173V26.6479H27.6504C27.614 31.2906 24.9619 35.7003 19.1947 36.696L19.0114 36.7271L23.4036 24.7469H35.7075L40.141 36.8604H35.7675V37.1252H52.9333V36.8604H48.5411V18.5878H53.6091C58.7665 18.5878 61.7245 20.8743 61.7245 24.859V28.1003C61.7245 28.4575 61.749 28.9796 61.776 29.4163V29.4322L59.052 36.8587H55.4934V37.1235H62.8596V36.8587H59.3393L61.8199 30.0961C61.825 30.1615 61.8276 30.2009 61.8276 30.2009L61.896 30.8103L61.9619 31.2134C62.3758 33.707 63.3369 35.5401 64.8177 36.6616L65.0305 36.815C66.1555 37.5912 67.5535 37.9843 69.1879 37.9843C71.3527 37.9843 72.7962 37.4487 73.988 36.1881L73.8318 36.0422C72.7337 37.048 71.8122 37.4555 70.6576 37.4555C68.6903 37.4555 67.6608 35.0875 67.6608 32.7523V28.2109C67.6712 27.0841 67.4934 25.9634 67.1345 24.8942L67.0856 24.7535V24.7484H76.0851L80.5186 36.862H76.1452V37.1269H91V36.862L86.3324 36.8604ZM23.5015 24.4819L29.5627 7.95697L35.6104 24.4819H23.5015ZM48.5438 18.322V1.50871H52.4122C57.5798 1.50871 60.308 4.5572 60.308 10.3215C60.308 16.452 58.742 18.322 53.6091 18.322H48.5438ZM66.9807 24.4819L66.9545 24.4165C66.5546 23.4499 65.9723 22.568 65.239 21.8181L64.9856 21.5666L64.9586 21.5415L69.937 7.95697L75.9846 24.4819H66.9807Z"
-                    fill="white"
-                  />
-                </svg>
+                      height="38"
+                      viewBox="0 0 91 38"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M86.3324 36.8604L72.8501 0.0243821L72.841 0H72.5749L69.7985 7.56966L64.7441 21.3504L64.7323 21.3395C62.9806 19.8056 60.5091 18.8468 57.3965 18.4897L56.4472 18.3924L57.389 18.2726C62.5219 17.3573 65.9723 14.1403 65.9723 10.2644C65.9723 4.94948 60.9348 1.2397 53.7189 1.2397H38.7052V1.5088H43.0678V28.9721L32.4727 0.0242918L32.4632 0H32.1971L29.4207 7.56966L18.7123 36.7655L18.6464 36.7731C18.4634 36.7955 18.2824 36.8133 18.1034 36.8268C17.834 36.8477 17.5662 36.8603 17.2976 36.8603H6.47765L27.0448 1.50871L27.1977 1.24304H2.04322V12.1789H2.31013C2.35745 6.85219 5.48348 1.50871 12.3902 1.50871H20.7226L0 37.1251H27.9173V26.6479H27.6504C27.614 31.2906 24.9619 35.7003 19.1947 36.696L19.0114 36.7271L23.4036 24.7469H35.7075L40.141 36.8604H35.7675V37.1252H52.9333V36.8604H48.5411V18.5878H53.6091C58.7665 18.5878 61.7245 20.8743 61.7245 24.859V28.1003C61.7245 28.4575 61.749 28.9796 61.776 29.4163V29.4322L59.052 36.8587H55.4934V37.1235H62.8596V36.8587H59.3393L61.8199 30.0961C61.825 30.1615 61.8276 30.2009 61.8276 30.2009L61.896 30.8103L61.9619 31.2134C62.3758 33.707 63.3369 35.5401 64.8177 36.6616L65.0305 36.815C66.1555 37.5912 67.5535 37.9843 69.1879 37.9843C71.3527 37.9843 72.7962 37.4487 73.988 36.1881L73.8318 36.0422C72.7337 37.048 71.8122 37.4555 70.6576 37.4555C68.6903 37.4555 67.6608 35.0875 67.6608 32.7523V28.2109C67.6712 27.0841 67.4934 25.9634 67.1345 24.8942L67.0856 24.7535V24.7484H76.0851L80.5186 36.862H76.1452V37.1269H91V36.862L86.3324 36.8604ZM23.5015 24.4819L29.5627 7.95697L35.6104 24.4819H23.5015ZM48.5438 18.322V1.50871H52.4122C57.5798 1.50871 60.308 4.5572 60.308 10.3215C60.308 16.452 58.742 18.322 53.6091 18.322H48.5438ZM66.9807 24.4819L66.9545 24.4165C66.5546 23.4499 65.9723 22.568 65.239 21.8181L64.9856 21.5666L64.9586 21.5415L69.937 7.95697L75.9846 24.4819H66.9807Z"
+                        fill="white"
+                      />
+                    </svg>
                   </div>
                   <img
                     src="./brands/zara.jpg"
@@ -329,7 +191,10 @@ const BrandsPage = () => {
                   />
                 </div>
                 <div className={styles.brandsZaraBoxBack}>
-                  <div className={styles.zaraLogoFlipperBack}>
+                  <div
+                    className={styles.zaraLogoFlipperBack}
+                    onClick={() => setIsFlippedB(false)}
+                  >
                     <svg
                       className={styles.versaceLogoSvg}
                       width="167"
@@ -355,7 +220,7 @@ const BrandsPage = () => {
                         isActive ? styles.active : ""
                       }`}
                       id="brand-buttonB"
-                      onClick={cardCloseB}
+                      // onClick={cardClose}
                     >
                       VIEW
                     </button>
@@ -369,14 +234,7 @@ const BrandsPage = () => {
                 </div>
               </div>
             </div>
-
-            {/* Gucci Card */}
-            <a
-              onMouseEnter={HoverC}
-              onMouseLeave={HoverC}
-              className={styles.brandsGucciBox}
-              href="#"
-            >
+            <a className={styles.brandsGucciBox} href="#">
               <div className={styles.gucciLogo}>
                 <svg
                   className={styles.gucciLogoSvg}
@@ -434,7 +292,10 @@ const BrandsPage = () => {
                   />
                 </div>
                 <div className={styles.brandsGucciBoxBack}>
-                  <div className={styles.gucciLogoFlipperBack}>
+                  <div
+                    className={styles.gucciLogoFlipperBack}
+                    onClick={() => setIsFlippedC(false)}
+                  >
                     <svg
                       className={styles.gucciLogoSvg}
                       width="156"
@@ -458,7 +319,7 @@ const BrandsPage = () => {
                         isActive ? styles.active : ""
                       }`}
                       id="brand-buttonC"
-                      onClick={cardCloseC}
+                      // onClick={cardClose}
                     >
                       VIEW
                     </button>
@@ -473,13 +334,7 @@ const BrandsPage = () => {
               </div>
             </div>
 
-            {/* Calvin Klein Card */}
-            <a
-              onMouseEnter={HoverD}
-              onMouseLeave={HoverD}
-              className={styles.brandsCalvinBox}
-              href="#"
-            >
+            <a className={styles.brandsCalvinBox} href="#">
               <div className={styles.calvinLogo}>
                 <svg
                   className={styles.calvinLogoSvg}
@@ -541,7 +396,10 @@ const BrandsPage = () => {
                   />
                 </div>
                 <div className={styles.brandsCalvinBoxBack}>
-                  <div className={styles.calvinLogoFlipperBack}>
+                  <div
+                    className={styles.calvinLogoFlipperBack}
+                    onClick={() => setIsFlippedD(false)}
+                  >
                     <svg
                       className={styles.calvinLogoSvg}
                       width="207"
@@ -567,7 +425,7 @@ const BrandsPage = () => {
                         isActive ? styles.active : ""
                       }`}
                       id="brand-buttonD"
-                      onClick={cardCloseD}
+                      // onClick={cardClose}
                     >
                       VIEW
                     </button>
@@ -581,14 +439,7 @@ const BrandsPage = () => {
                 </div>
               </div>
             </div>
-
-            {/* Prada Card */}
-            <a
-              onMouseEnter={HoverE}
-              onMouseLeave={HoverE}
-              className={styles.brandsPradaBox}
-              href="#"
-            >
+            <a className={styles.brandsPradaBox} href="#">
               <div className={styles.pradaLogo}>
                 <svg
                   className={styles.pradaLogoSvg}
@@ -656,7 +507,10 @@ const BrandsPage = () => {
                   />
                 </div>
                 <div className={styles.brandsPradaBoxBack}>
-                  <div className={styles.pradaLogoFlipperBack}>
+                  <div
+                    className={styles.pradaLogoFlipperBack}
+                    onClick={() => setIsFlippedE(false)}
+                  >
                     <svg
                       className={styles.pradaLogoSvg}
                       width="194"
@@ -685,7 +539,7 @@ const BrandsPage = () => {
                         isActive ? styles.active : ""
                       }`}
                       id="brand-buttonE"
-                      onClick={cardCloseE}
+                      // onClick={cardClose}
                     >
                       VIEW
                     </button>

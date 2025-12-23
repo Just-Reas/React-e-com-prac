@@ -87,6 +87,12 @@
   height: auto;
   opacity: 0.1;
   transition: all 0.3s ease-in-out;
+  @media screen and (min-width:992px){
+    &:hover{
+    opacity: 1;
+    transform: scale(105%);
+  } 
+  }
 }
 
 .brandsZaraBox {
@@ -138,6 +144,12 @@
   height: auto;
   opacity: 0.1;
   transition: all 0.3s ease-in-out;
+  @media screen and (min-width:992px){
+    &:hover{
+    opacity: 1;
+    transform: scale(105%);
+  } 
+  }
 }
 
 .brandsGucciBox {
@@ -189,6 +201,12 @@
   height: auto;
   opacity: 0.1;
   transition: all 0.3s ease-in-out;
+  @media screen and (min-width:992px){
+    &:hover{
+    opacity: 1;
+    transform: scale(105%);
+  } 
+  }
 }
 
 .brandsCalvinBox {
@@ -240,6 +258,12 @@
   height: auto;
   opacity: 0.1;
   transition: all 0.3s ease-in-out;
+  @media screen and (min-width:992px){
+    &:hover{
+    opacity: 1;
+    transform: scale(105%);
+  } 
+  }
 }
 
 .brandsPradaBox {
@@ -291,6 +315,12 @@
   height: auto;
   opacity: 0.1;
   transition: all 0.3s ease-in-out;
+  @media screen and (min-width:992px){
+    &:hover{
+    opacity: 1;
+    transform: scale(105%);
+  } 
+  }
 }
 
 .brandsVersaceBoxFlipper {
@@ -1143,7 +1173,7 @@
     transform: scale(240%) translateY(25%) translateX(-20%);
   }
   @media screen and (max-width:390px){
-    transform: scale(320%) translateY(60%) translateX(-15%);
+    transform: scale(340%) translateY(50%) translateX(-5%);
   }
 }
 

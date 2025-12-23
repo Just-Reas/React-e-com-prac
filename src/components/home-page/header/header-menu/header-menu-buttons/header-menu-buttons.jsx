@@ -66,7 +66,11 @@ const HeaderMenuButtons = () => {
         </svg>
       </button>
 
-      <button className={styles.menuProfile} onClick={handleLogClick} id="profile-button">
+      <button
+        className={styles.menuProfile}
+        onClick={handleLogClick}
+        id="profile-button"
+      >
         <svg
           className={styles.menuProfileSvg}
           width="21"

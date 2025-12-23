@@ -3,7 +3,7 @@ import { useHeaderBurger } from "./utils/header-burger-script";
 import { Link } from "react-router-dom";
 
 const HeaderMenuBurger = () => {
-  const {handleBurgerToggle, handleShopToggle } = useHeaderBurger();
+  const { handleBurgerToggle, handleShopToggle } = useHeaderBurger();
 
   return (
     <>
@@ -46,7 +46,11 @@ const HeaderMenuBurger = () => {
               />
             </svg>
           </button>
-          <Link to="/shop" onClick={handleBurgerToggle} className={styles.menuListItemA}>
+          <Link
+            to="/shop"
+            onClick={handleBurgerToggle}
+            className={styles.menuListItemA}
+          >
             Shop
           </Link>
           <ul className={styles.shopMenu} id="shop-menu">
@@ -79,17 +83,29 @@ const HeaderMenuBurger = () => {
         </div>
         <ul className={styles.windowMenu}>
           <li className={styles.windowMenuItem}>
-            <Link to="/sale" onClick={handleBurgerToggle} className={styles.menuListItemA}>
+            <Link
+              to="/sale"
+              onClick={handleBurgerToggle}
+              className={styles.menuListItemA}
+            >
               On Sale
             </Link>
           </li>
           <li className={styles.windowMenuItem}>
-            <Link to="/arrivals" onClick={handleBurgerToggle} className={styles.menuListItemA}>
+            <Link
+              to="/arrivals"
+              onClick={handleBurgerToggle}
+              className={styles.menuListItemA}
+            >
               New Arrivals
             </Link>
           </li>
           <li className={styles.windowMenuItem}>
-            <Link to="/brands" onClick={handleBurgerToggle} className={styles.menuListItemA} >
+            <Link
+              to="/brands"
+              onClick={handleBurgerToggle}
+              className={styles.menuListItemA}
+            >
               Brands
             </Link>
           </li>

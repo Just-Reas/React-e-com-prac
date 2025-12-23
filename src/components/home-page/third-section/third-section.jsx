@@ -1,9 +1,7 @@
-import ProductComponent from "./ui/product-component/product-component"
+import ProductComponent from "./ui/product-component/product-component";
 
-const ThirdSection = () =>{
-    return(
-        <ProductComponent>New Arrivals</ProductComponent>
-    )
-}
+const ThirdSection = () => {
+  return <ProductComponent>New Arrivals</ProductComponent>;
+};
 
-export default ThirdSection
+export default ThirdSection;

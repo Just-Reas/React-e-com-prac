@@ -1,12 +1,13 @@
 import Button from "./ui/text-button";
 import styles from "./first-section.module.scss";
 import { useNavigate } from "react-router-dom";
+import { ShopRoute } from "../../../routes";
 
 const FirstSection = () => {
   const navigate = useNavigate();
 
   const handleShopClick = () => {
-    navigate("/shop");
+    navigate(ShopRoute.path);
   };
 
   return (
@@ -27,7 +28,11 @@ const FirstSection = () => {
               </div>
             </div>
           </div>
-          <Button onClick={handleShopClick} children="Shop Now" className="buttonMain" />
+          <Button
+            onClick={handleShopClick}
+            children="Shop Now"
+            className="buttonMain"
+          />
           <div className={styles.descriptionMenu}>
             <div className={styles.descriptionItem}>
               <div className={styles.descriptionItemHeader}>200+</div>

@@ -1,199 +1,68 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./log.module.scss";
+import { Controller, useForm } from "react-hook-form";
 
 const LogSection = () => {
-  const [loginForm, setLoginForm] = useState({
-    email: "",
-    password: "",
-  });
-  const [registerForm, setRegisterForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-    repeatPassword: "",
-  });
-  const [errors, setErrors] = useState({
-    name: "",
-    password: "",
-    repeatPassword: "",
-  });
-  const [validationStatus, setValidationStatus] = useState({
-    name: false,
-    password: false,
-    repeatPassword: false,
-  });
-
-  const handleRegisterChange = (e) => {
-    const { name, value } = e.target;
-    setRegisterForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    console.log(`Введённое значение: ${value}`);
-
-    if (name === "name") {
-      validateName(value);
-    } else if (name === "password") {
-      validatePassword(value);
-    } else if (name === "repeatPassword") {
-      validatePasswordRep(value, registerForm.password);
-    }
-  };
-
-  const handleLoginChange = (e) => {
-    const { name, value } = e.target;
-    setLoginForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    console.log(`Введённое значение: ${value}`);
-  };
-
-  const validateName = (name) => {
-    const nameInput = document.getElementById("register-name");
-
-    let error = "";
-    let isValid = false;
-
-    if (name.trim().length < 4 && name.trim().length > 0) {
-      error = "Name length should be greater than 4";
-      isValid = false;
-      if (nameInput) nameInput.style.border = "2px solid red";
-    } else if (name.trim().length >= 4) {
-      error = "";
-      isValid = true;
-      if (nameInput) nameInput.style.border = "2px solid white";
-    }
-
-    setErrors((prev) => ({ ...prev, name: error }));
-    setValidationStatus((prev) => ({ ...prev, name: isValid }));
-  };
-
-  const regNameHandleBlur = () => {
-    const nameInput = document.getElementById("register-name");
-    if (nameInput && !errors.name) {
-      nameInput.style.border = "2px solid #949494";
-    }
-  };
-
-  const regNameHandleFocus = () => {
-    const nameInput = document.getElementById("register-name");
-    if (nameInput && !errors.name) {
-      nameInput.style.border = "2px solid white";
-    }
-  };
-
-  const validatePassword = (pass) => {
-    const passInput = document.getElementById("register-password");
-
-    let error = "";
-    let isValid = false;
-
-    if (pass.trim().length < 8 && pass.trim().length > 0) {
-      error = "The password length should be greater than 8";
-    } else if (!/[A-Z]/.test(pass) && pass.trim().length > 0) {
-      error = "The password should includes one uppercase word at least";
-    } else if (
-      !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(pass) &&
-      pass.trim().length > 0
-    ) {
-      error = "The password should includes one special symbol at least";
-    } else if (/\s/.test(pass) && pass.trim().length > 0) {
-      error = "The password must not contain spaces.";
-    } else if (pass.trim().length >= 8) {
-      error = "";
-      isValid = true;
-    }
-
-    setErrors((prev) => ({ ...prev, password: error }));
-    setValidationStatus((prev) => ({ ...prev, password: isValid }));
-
-    if (passInput) {
-      if (error) {
-        passInput.style.border = "2px solid red";
-      } else {
-        passInput.style.border = "2px solid white";
-      }
-    }
-  };
-
-  const regPassHandleBlur = () => {
-    const passInput = document.getElementById("register-password");
-    if (passInput && !errors.password) {
-      passInput.style.border = "2px solid #949494";
-    }
-  };
-
-  const regPassHandleFocus = () => {
-    const passInput = document.getElementById("register-password");
-    if (passInput && !errors.password) {
-      passInput.style.border = "2px solid white";
-    }
-  };
-
-  const validatePasswordRep = (pass, originalPass) => {
-    const passInput = document.getElementById("register-password-repeat");
-
-    let error = "";
-    let isValid = false;
-
-    if (pass.trim() !== originalPass && pass.trim().length > 0) {
-      error = "Passwords don't match";
-      isValid = false;
-      if (passInput) passInput.style.border = "2px solid red";
-    } else if (pass.trim() === originalPass && pass.trim().length > 0) {
-      error = "";
-      isValid = true;
-      if (passInput) passInput.style.border = "2px solid white";
-    }
-
-    setErrors((prev) => ({ ...prev, repeatPassword: error }));
-    setValidationStatus((prev) => ({ ...prev, repeatPassword: isValid }));
-  };
-
-  const loginSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const registerSubmit = (e) => {
-    e.preventDefault();
-    const isFormValid = Object.values(validationStatus).every(
-      (status) => status === true
-    );
-
-    if (isFormValid) {
-      alert(`Success!`);
-    } else {
-      alert(`Complete all the conditions!`);
-    }
-  };
-
+  const signContainerRef = useRef(null);
+  const signInContainerRef = useRef(null);
+  const signUpContainerRef = useRef(null);
   const toSignIn = () => {
-    const sign = document.getElementById("sign-container");
-    const signIn = document.getElementById("signin-container");
-    const signUp = document.getElementById("signup-container");
-    sign.style.display = "none";
-    signIn.style.display = "flex";
-    signUp.style.display = "none";
+    signContainerRef.current.style.display = "none";
+    signInContainerRef.current.style.display = "flex";
+    signUpContainerRef.current.style.display = "none";
   };
 
   const toSignUp = () => {
-    const sign = document.getElementById("sign-container");
-    const signIn = document.getElementById("signin-container");
-    const signUp = document.getElementById("signup-container");
-    sign.style.display = "none";
-    signIn.style.display = "none";
-    signUp.style.display = "flex";
+    signContainerRef.current.style.display = "none";
+    signInContainerRef.current.style.display = "none";
+    signUpContainerRef.current.style.display = "flex";
   };
 
   const goBack = () => {
-    const sign = document.getElementById("sign-container");
-    const signIn = document.getElementById("signin-container");
-    const signUp = document.getElementById("signup-container");
-    sign.style.display = "flex";
-    signIn.style.display = "none";
-    signUp.style.display = "none";
+    signContainerRef.current.style.display = "flex";
+    signInContainerRef.current.style.display = "none";
+    signUpContainerRef.current.style.display = "none";
   };
+
+  const {
+    control: loginControl,
+    handleSubmit: handleLoginSubmit,
+    formState: { errors: loginErrors },
+    reset: loginReset,
+    watch: loginWatch,
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onChange",
+  });
+
+  const {
+    control: registerControl,
+    handleSubmit: handleRegisterSubmit,
+    formState: { errors: registerErrors },
+    reset: registerReset,
+    watch: registerWatch,
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      repeatPassword: "",
+    },
+    mode: "onChange",
+  });
+
+  const onLoginSubmit = (data) => {
+    console.log("Login data:", data);
+  };
+
+  const onRegisterSubmit = (data) => {
+    console.log("Register data:", data);
+  };
+
+  const registerPassword = registerWatch("password");
 
   return (
     <div className={styles.logInner}>
@@ -206,7 +75,11 @@ const LogSection = () => {
               alt="first-img-cutted"
             />
           </div>
-          <div className={styles.container} id="sign-container">
+          <div
+            className={styles.container}
+            id="sign-container"
+            ref={signContainerRef}
+          >
             <div className={styles.logButtonsContainer}>
               <div className={styles.buttonText}>Sign In/Up</div>
               <div className={styles.buttonLine}></div>
@@ -218,71 +91,134 @@ const LogSection = () => {
               </button>
             </div>
           </div>
-          <div className={styles.containerLogin} id="signin-container">
+          <div
+            className={styles.containerLogin}
+            id="signin-container"
+            ref={signInContainerRef}
+          >
             <div className={styles.containerLoginInner}>
               <div className={styles.loginText}>Sign In</div>
               <div className={styles.buttonLine}></div>
-              <form className={styles.loginForm} onSubmit={loginSubmit}>
+              <form
+                className={styles.loginForm}
+                onSubmit={handleLoginSubmit(onLoginSubmit)}
+              >
                 <div className={styles.emailContainer}>
-                  <input
-                    placeholder=" "
-                    className={styles.input}
-                    value={loginForm.email}
-                    onChange={handleLoginChange}
+                  <Controller
                     name="email"
-                    type="email"
-                    required
-                    id="login-email"
+                    control={loginControl}
+                    rules={{
+                      required: "Email required!",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Wrong email format!",
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        placeholder=" "
+                        className={`${styles.input} ${
+                          loginErrors.email ? styles.inputError : ""
+                        }`}
+                        name="email"
+                        type="email"
+                        id="login-email"
+                        autoComplete="email"
+                      />
+                    )}
                   />
-                  <label
-                    className={styles.label}
-                    htmlFor="login-email"
-                    id="login-email-label"
-                  >
+                  <label className={styles.label} htmlFor="login-email">
                     Email
                   </label>
+                  {loginErrors.email && (
+                    <span className={styles.errorMessage}>
+                      {loginErrors.email.message}
+                    </span>
+                  )}
                 </div>
+
                 <div className={styles.passwordContainer}>
-                  <input
-                    placeholder=" "
-                    className={styles.input}
+                  <Controller
                     name="password"
-                    value={loginForm.password}
-                    onChange={handleLoginChange}
-                    type="password"
-                    required
-                    id="login-password"
+                    control={loginControl}
+                    rules={{
+                      required: "Password reauired!",
+                      minLength: {
+                        value: 6,
+                        message: "6 characters minimum!",
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        placeholder=" "
+                        className={`${styles.input} ${
+                          loginErrors.password ? styles.inputError : ""
+                        }`}
+                        name="password"
+                        type="password"
+                        id="login-password"
+                        autoComplete="current-password"
+                      />
+                    )}
                   />
                   <label htmlFor="login-password" className={styles.label}>
                     Password
                   </label>
+                  {loginErrors.password && (
+                    <span className={styles.errorMessage}>
+                      {loginErrors.password.message}
+                    </span>
+                  )}
                 </div>
+
                 <button type="submit" className={styles.loginButton}>
                   Go
                 </button>
               </form>
+
               <a className={styles.goBack} onClick={goBack}>
                 Go back
               </a>
             </div>
           </div>
-          <div className={styles.containerRegister} id="signup-container">
+
+          <div
+            className={styles.containerRegister}
+            id="signup-container"
+            ref={signUpContainerRef}
+          >
             <div className={styles.containerRegisterInner}>
               <div className={styles.registerText}>Sign Up</div>
               <div className={styles.buttonLine}></div>
-              <form className={styles.loginForm} onSubmit={registerSubmit}>
+              <form
+                className={styles.loginForm}
+                onSubmit={handleRegisterSubmit(onRegisterSubmit)}
+              >
                 <div className={styles.nameRegContainer}>
-                  <input
-                    placeholder=" "
-                    className={styles.input}
-                    value={registerForm.name}
-                    onChange={handleRegisterChange}
-                    onFocus={regNameHandleFocus}
+                  <Controller
                     name="name"
-                    onBlur={regNameHandleBlur}
-                    type="text"
-                    required
-                    id="register-name"
+                    control={registerControl}
+                    rules={{
+                      required: "Name required!",
+                      minLength: {
+                        value: 3,
+                        message: "3 characters minimum!",
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        placeholder=" "
+                        className={`${styles.input} ${
+                          registerErrors.name ? styles.inputError : ""
+                        }`}
+                        type="text"
+                        id="register-name"
+                        autoComplete="name"
+                      />
+                    )}
                   />
                   <label
                     className={styles.label}
@@ -291,20 +227,36 @@ const LogSection = () => {
                   >
                     Name
                   </label>
+                  {registerErrors.name && (
+                    <span className={styles.errorMessage}>
+                      {registerErrors.name.message}
+                    </span>
+                  )}
                 </div>
-                {errors.name && (
-                  <div className={styles.errorMessage}>{errors.name}</div>
-                )}
+
                 <div className={styles.nameRegContainer}>
-                  <input
-                    placeholder=" "
-                    className={styles.input}
+                  <Controller
                     name="email"
-                    value={registerForm.email}
-                    onChange={handleRegisterChange}
-                    type="email"
-                    required
-                    id="register-email"
+                    control={registerControl}
+                    rules={{
+                      required: "Email required!",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Wrong email format!",
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        placeholder=" "
+                        className={`${styles.input} ${
+                          registerErrors.email ? styles.inputError : ""
+                        }`}
+                        type="email"
+                        id="register-email"
+                        autoComplete="email"
+                      />
+                    )}
                   />
                   <label
                     className={styles.label}
@@ -313,19 +265,36 @@ const LogSection = () => {
                   >
                     Email
                   </label>
+                  {registerErrors.email && (
+                    <span className={styles.errorMessage}>
+                      {registerErrors.email.message}
+                    </span>
+                  )}
                 </div>
+
                 <div className={styles.nameRegContainer}>
-                  <input
-                    placeholder=" "
-                    className={styles.input}
+                  <Controller
                     name="password"
-                    value={registerForm.password}
-                    onChange={handleRegisterChange}
-                    onFocus={regPassHandleFocus}
-                    onBlur={regPassHandleBlur}
-                    type="password"
-                    required
-                    id="register-password"
+                    control={registerControl}
+                    rules={{
+                      required: "Password required!",
+                      minLength: {
+                        value: 6,
+                        message: "6 characters minimum!",
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        placeholder=" "
+                        className={`${styles.input} ${
+                          registerErrors.password ? styles.inputError : ""
+                        }`}
+                        type="password"
+                        id="register-password"
+                        autoComplete="new-password"
+                      />
+                    )}
                   />
                   <label
                     className={styles.label}
@@ -334,20 +303,34 @@ const LogSection = () => {
                   >
                     Password
                   </label>
+                  {registerErrors.password && (
+                    <span className={styles.errorMessage}>
+                      {registerErrors.password.message}
+                    </span>
+                  )}
                 </div>
-                {errors.password && (
-                  <div className={styles.errorMessage}>{errors.password}</div>
-                )}
+
                 <div className={styles.nameRegContainer}>
-                  <input
-                    placeholder=" "
-                    className={styles.input}
+                  <Controller
                     name="repeatPassword"
-                    value={registerForm.repeatPassword}
-                    onChange={handleRegisterChange}
-                    type="password"
-                    required
-                    id="register-password-repeat"
+                    control={registerControl}
+                    rules={{
+                      required: "Repeat password",
+                      validate: (value) =>
+                        value === registerPassword || "Passwords doesn't match",
+                    }}
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        placeholder=" "
+                        className={`${styles.input} ${
+                          registerErrors.repeatPassword ? styles.inputError : ""
+                        }`}
+                        type="password"
+                        id="register-password-repeat"
+                        autoComplete="new-password"
+                      />
+                    )}
                   />
                   <label
                     className={styles.label}
@@ -356,12 +339,12 @@ const LogSection = () => {
                   >
                     Repeat password
                   </label>
+                  {registerErrors.repeatPassword && (
+                    <span className={styles.errorMessage}>
+                      {registerErrors.repeatPassword.message}
+                    </span>
+                  )}
                 </div>
-                {errors.repeatPassword && (
-                  <div className={styles.errorMessage}>
-                    {errors.repeatPassword}
-                  </div>
-                )}
                 <button type="submit" className={styles.loginButton}>
                   Go
                 </button>
@@ -376,5 +359,4 @@ const LogSection = () => {
     </div>
   );
 };
-
 export default LogSection;

@@ -2,6 +2,13 @@ import styles from "./header-menu-list.module.scss";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import useClickOutside from "./utils/header-list-clickoutside";
+import {
+  ArrivalsRoute,
+  BrandsRoute,
+  SaleRoute,
+  ShopRoute,
+} from "../../../../../routes";
+import Sale from "../../../../../pages/Sale";
 
 const HeaderMenuList = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,18 +16,16 @@ const HeaderMenuList = () => {
   const buttonRef = useRef();
 
   useEffect(() => {
-    const menu = document.getElementById('menu-shop');
-    const button = document.getElementById('menu-button');
-    
-    if (menu && button) {
+    if (menuRef.current && buttonRef.current) {
       if (isMenuOpen) {
-        menu.style.opacity = "1";
-        menu.style.transform = "translateY(0)";
-        button.style.transform = "rotateX(180deg) translateY(-0.125rem)";
+        menuRef.current.style.opacity = "1";
+        menuRef.current.style.transform = "translateY(0)";
+        buttonRef.current.style.transform =
+          "rotateX(180deg) translateY(-0.125rem)";
       } else {
-        menu.style.opacity = "0";
-        menu.style.transform = "translateY(-1.25rem)";
-        button.style.transform = "rotateX(0) translateY(0)";
+        menuRef.current.style.opacity = "0";
+        menuRef.current.style.transform = "translateY(-1.25rem)";
+        buttonRef.current.style.transform = "rotateX(0) translateY(0)";
       }
     }
   }, [isMenuOpen]);
@@ -63,11 +68,7 @@ const HeaderMenuList = () => {
             </svg>
           </button>
 
-          <ul
-            className={styles.menuShop}
-            id="menu-shop"
-            ref={menuRef}
-          >
+          <ul className={styles.menuShop} id="menu-shop" ref={menuRef}>
             <li className={styles.menuShopItem}>
               <a href="#">Men</a>
             </li>
@@ -86,19 +87,19 @@ const HeaderMenuList = () => {
           </ul>
         </li>
         <li className={styles.menuListItem}>
-          <Link to="/sale" className={styles.menuListItemA}>
+          <a href={SaleRoute.path} className={styles.menuListItemA}>
             On Sale
-          </Link>
+          </a>
         </li>
         <li className={styles.menuListItem}>
-          <Link  to="/arrivals" className={styles.menuListItemA}>
+          <a href={ArrivalsRoute.path} className={styles.menuListItemA}>
             New Arrivals
-          </Link>
+          </a>
         </li>
         <li className={styles.menuListItem}>
-          <Link to="/brands" className={styles.menuListItemA} >
+          <a href={BrandsRoute.path} className={styles.menuListItemA}>
             Brands
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>

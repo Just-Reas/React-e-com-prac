@@ -1,9 +1,7 @@
 import styles from "./review.module.scss";
 
 const Review = (props) => {
-  const{
-    name
-  } = props
+  const { name } = props;
   return (
     <div className={styles.mainContainer}>
       <div className={styles.ratingContainer}>

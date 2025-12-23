@@ -1,3 +1,4 @@
+import { ArrivalsRoute } from "../../../../../routes";
 import Button from "../../../first-section/ui/text-button";
 import ProductItem from "../product-item/product-item";
 import styles from "./product-component.module.scss";
@@ -48,8 +49,10 @@ const ProductComponent = (props) => {
               </li>
             </ul>
           </div>
-          <Button onClick={saleClick} className="product">
-            View All
+          <Button className="product">
+            <a className="productA" href={ArrivalsRoute.path}>
+              ViewAll
+            </a>
           </Button>
         </div>
       </div>

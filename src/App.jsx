@@ -1,24 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/home-page/header/header";
 import Footer from "./components/home-page/footer/footer";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import Sale from "./pages/Sale";
-import Arrivals from "./pages/Arrivals";
-import Brands from "./pages/Brands";
-import Log from "./pages/Log";
+import { ROUTES } from "./routes.jsx";
 
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/sale" element={<Sale />} />
-        <Route path="/arrivals" element={<Arrivals />} />
-        <Route path="/brands" element={<Brands />} />
-        <Route path="/log" element={<Log />} />
+        {ROUTES.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
       </Routes>
       <Footer />
     </Router>

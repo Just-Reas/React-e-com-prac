@@ -60,3 +60,14 @@
         @include sato(500,1rem);
     }
 }
+
+.productA{
+    color: $black_color;
+    text-decoration: unset;
+    &:hover{
+        color: #cccccc;
+    }
+    &:active{
+        color: #7a7a7a;
+    }
+}

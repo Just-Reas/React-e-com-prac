@@ -3,7 +3,7 @@ import Review from "./ui/review";
 import { useSliderScript } from "./utils/sixth-section-slider-scipt";
 
 const SixthSection = () => {
-  const {rightSlide,leftSlide} = useSliderScript()
+  const { rightSlide, leftSlide } = useSliderScript();
   return (
     <div className={styles.inner}>
       <div className="containerSup">
