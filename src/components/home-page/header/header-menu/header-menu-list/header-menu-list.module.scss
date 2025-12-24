@@ -45,6 +45,12 @@
 .menuButton {
   border: unset;
   background-color: unset;
+  transform: rotateX(0deg) translateY(0);
+}
+.menuButtonRotate{
+  border: unset;
+  background-color: unset;
+  transform: rotateX(180deg) translateY(-0.125rem);
 }
 
 .menuShop {
@@ -92,7 +98,7 @@
   z-index: 1000;
   border-radius: 1.5rem;
   padding: 1.5rem 2rem;
-  transform: rotateX(180deg) translateY(-0.125rem);
+  transform:  translateY(-0.125rem);
   &__item {
     text-align: center;
     a {
