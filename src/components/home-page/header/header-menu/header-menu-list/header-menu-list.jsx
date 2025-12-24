@@ -18,14 +18,11 @@ const HeaderMenuList = () => {
   useEffect(() => {
     if (menuRef.current && buttonRef.current) {
       if (isMenuOpen) {
-        menuRef.current.style.opacity = "1";
-        menuRef.current.style.transform = "translateY(0)";
-        buttonRef.current.style.transform =
-          "rotateX(180deg) translateY(-0.125rem)";
+        menuRef.current.classList.remove("menuShop")
+        menuRef.current.classList.add("menuShopOpened")
       } else {
-        menuRef.current.style.opacity = "0";
-        menuRef.current.style.transform = "translateY(-1.25rem)";
-        buttonRef.current.style.transform = "rotateX(0) translateY(0)";
+        menuRef.current.classList.remove("menuShopOpened")
+        menuRef.current.classList.add("menuShop")
       }
     }
   }, [isMenuOpen]);

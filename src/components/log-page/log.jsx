@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./log.module.scss";
-import { Controller, useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
+import InputController from "./utils/controllerSettings";
 
 const LogSection = () => {
   const signContainerRef = useRef(null);
   const signInContainerRef = useRef(null);
   const signUpContainerRef = useRef(null);
+
   const toSignIn = () => {
     signContainerRef.current.style.display = "none";
     signInContainerRef.current.style.display = "flex";
@@ -24,13 +26,7 @@ const LogSection = () => {
     signUpContainerRef.current.style.display = "none";
   };
 
-  const {
-    control: loginControl,
-    handleSubmit: handleLoginSubmit,
-    formState: { errors: loginErrors },
-    reset: loginReset,
-    watch: loginWatch,
-  } = useForm({
+  const loginFormMethods = useForm({
     defaultValues: {
       email: "",
       password: "",
@@ -38,13 +34,7 @@ const LogSection = () => {
     mode: "onChange",
   });
 
-  const {
-    control: registerControl,
-    handleSubmit: handleRegisterSubmit,
-    formState: { errors: registerErrors },
-    reset: registerReset,
-    watch: registerWatch,
-  } = useForm({
+  const registerFormMethods = useForm({
     defaultValues: {
       name: "",
       email: "",
@@ -53,6 +43,11 @@ const LogSection = () => {
     },
     mode: "onChange",
   });
+
+  const { watch: loginWatch, handleSubmit: handleLoginSubmit } =
+    loginFormMethods;
+  const { watch: registerWatch, handleSubmit: handleRegisterSubmit } =
+    registerFormMethods;
 
   const onLoginSubmit = (data) => {
     console.log("Login data:", data);
@@ -91,22 +86,22 @@ const LogSection = () => {
               </button>
             </div>
           </div>
-          <div
-            className={styles.containerLogin}
-            id="signin-container"
-            ref={signInContainerRef}
-          >
-            <div className={styles.containerLoginInner}>
-              <div className={styles.loginText}>Sign In</div>
-              <div className={styles.buttonLine}></div>
-              <form
-                className={styles.loginForm}
-                onSubmit={handleLoginSubmit(onLoginSubmit)}
-              >
-                <div className={styles.emailContainer}>
-                  <Controller
+
+          <FormProvider {...loginFormMethods}>
+            <div
+              className={styles.containerLogin}
+              id="signin-container"
+              ref={signInContainerRef}
+            >
+              <div className={styles.containerLoginInner}>
+                <div className={styles.loginText}>Sign In</div>
+                <div className={styles.buttonLine}></div>
+                <form
+                  className={styles.loginForm}
+                  onSubmit={handleLoginSubmit(onLoginSubmit)}
+                >
+                  <InputController
                     name="email"
-                    control={loginControl}
                     rules={{
                       required: "Email required!",
                       pattern: {
@@ -114,168 +109,15 @@ const LogSection = () => {
                         message: "Wrong email format!",
                       },
                     }}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder=" "
-                        className={`${styles.input} ${
-                          loginErrors.email ? styles.inputError : ""
-                        }`}
-                        name="email"
-                        type="email"
-                        id="login-email"
-                        autoComplete="email"
-                      />
-                    )}
+                    type="email"
+                    id="login-email"
+                    autoComplete="email"
+                    label="Email"
+                    containerClassName={styles.emailContainer}
                   />
-                  <label className={styles.label} htmlFor="login-email">
-                    Email
-                  </label>
-                  {loginErrors.email && (
-                    <span className={styles.errorMessage}>
-                      {loginErrors.email.message}
-                    </span>
-                  )}
-                </div>
 
-                <div className={styles.passwordContainer}>
-                  <Controller
+                  <InputController
                     name="password"
-                    control={loginControl}
-                    rules={{
-                      required: "Password reauired!",
-                      minLength: {
-                        value: 6,
-                        message: "6 characters minimum!",
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder=" "
-                        className={`${styles.input} ${
-                          loginErrors.password ? styles.inputError : ""
-                        }`}
-                        name="password"
-                        type="password"
-                        id="login-password"
-                        autoComplete="current-password"
-                      />
-                    )}
-                  />
-                  <label htmlFor="login-password" className={styles.label}>
-                    Password
-                  </label>
-                  {loginErrors.password && (
-                    <span className={styles.errorMessage}>
-                      {loginErrors.password.message}
-                    </span>
-                  )}
-                </div>
-
-                <button type="submit" className={styles.loginButton}>
-                  Go
-                </button>
-              </form>
-
-              <a className={styles.goBack} onClick={goBack}>
-                Go back
-              </a>
-            </div>
-          </div>
-
-          <div
-            className={styles.containerRegister}
-            id="signup-container"
-            ref={signUpContainerRef}
-          >
-            <div className={styles.containerRegisterInner}>
-              <div className={styles.registerText}>Sign Up</div>
-              <div className={styles.buttonLine}></div>
-              <form
-                className={styles.loginForm}
-                onSubmit={handleRegisterSubmit(onRegisterSubmit)}
-              >
-                <div className={styles.nameRegContainer}>
-                  <Controller
-                    name="name"
-                    control={registerControl}
-                    rules={{
-                      required: "Name required!",
-                      minLength: {
-                        value: 3,
-                        message: "3 characters minimum!",
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder=" "
-                        className={`${styles.input} ${
-                          registerErrors.name ? styles.inputError : ""
-                        }`}
-                        type="text"
-                        id="register-name"
-                        autoComplete="name"
-                      />
-                    )}
-                  />
-                  <label
-                    className={styles.label}
-                    htmlFor="register-name"
-                    id="register-name-label"
-                  >
-                    Name
-                  </label>
-                  {registerErrors.name && (
-                    <span className={styles.errorMessage}>
-                      {registerErrors.name.message}
-                    </span>
-                  )}
-                </div>
-
-                <div className={styles.nameRegContainer}>
-                  <Controller
-                    name="email"
-                    control={registerControl}
-                    rules={{
-                      required: "Email required!",
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Wrong email format!",
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder=" "
-                        className={`${styles.input} ${
-                          registerErrors.email ? styles.inputError : ""
-                        }`}
-                        type="email"
-                        id="register-email"
-                        autoComplete="email"
-                      />
-                    )}
-                  />
-                  <label
-                    className={styles.label}
-                    htmlFor="register-email"
-                    id="register-email-label"
-                  >
-                    Email
-                  </label>
-                  {registerErrors.email && (
-                    <span className={styles.errorMessage}>
-                      {registerErrors.email.message}
-                    </span>
-                  )}
-                </div>
-
-                <div className={styles.nameRegContainer}>
-                  <Controller
-                    name="password"
-                    control={registerControl}
                     rules={{
                       required: "Password required!",
                       minLength: {
@@ -283,80 +125,114 @@ const LogSection = () => {
                         message: "6 characters minimum!",
                       },
                     }}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder=" "
-                        className={`${styles.input} ${
-                          registerErrors.password ? styles.inputError : ""
-                        }`}
-                        type="password"
-                        id="register-password"
-                        autoComplete="new-password"
-                      />
-                    )}
+                    type="password"
+                    id="login-password"
+                    autoComplete="current-password"
+                    label="Password"
+                    containerClassName={styles.passwordContainer}
                   />
-                  <label
-                    className={styles.label}
-                    htmlFor="register-password"
-                    id="register-password-label"
-                  >
-                    Password
-                  </label>
-                  {registerErrors.password && (
-                    <span className={styles.errorMessage}>
-                      {registerErrors.password.message}
-                    </span>
-                  )}
-                </div>
 
-                <div className={styles.nameRegContainer}>
-                  <Controller
+                  <button type="submit" className={styles.loginButton}>
+                    Go
+                  </button>
+                </form>
+
+                <a className={styles.goBack} onClick={goBack}>
+                  Go back
+                </a>
+              </div>
+            </div>
+          </FormProvider>
+
+          <FormProvider {...registerFormMethods}>
+            <div
+              className={styles.containerRegister}
+              id="signup-container"
+              ref={signUpContainerRef}
+            >
+              <div className={styles.containerRegisterInner}>
+                <div className={styles.registerText}>Sign Up</div>
+                <div className={styles.buttonLine}></div>
+                <form
+                  className={styles.loginForm}
+                  onSubmit={handleRegisterSubmit(onRegisterSubmit)}
+                >
+                  <InputController
+                    name="name"
+                    rules={{
+                      required: "Name required!",
+                      minLength: {
+                        value: 3,
+                        message: "3 characters minimum!",
+                      },
+                    }}
+                    type="text"
+                    id="register-name"
+                    autoComplete="name"
+                    label="Name"
+                    containerClassName={styles.nameRegContainer}
+                  />
+
+                  <InputController
+                    name="email"
+                    rules={{
+                      required: "Email required!",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Wrong email format!",
+                      },
+                    }}
+                    type="email"
+                    id="register-email"
+                    autoComplete="email"
+                    label="Email"
+                    containerClassName={styles.nameRegContainer}
+                  />
+
+                  <InputController
+                    name="password"
+                    rules={{
+                      required: "Password required!",
+                      minLength: {
+                        value: 6,
+                        message: "6 characters minimum!",
+                      },
+                    }}
+                    type="password"
+                    id="register-password"
+                    autoComplete="new-password"
+                    label="Password"
+                    containerClassName={styles.nameRegContainer}
+                  />
+
+                  <InputController
                     name="repeatPassword"
-                    control={registerControl}
                     rules={{
                       required: "Repeat password",
                       validate: (value) =>
                         value === registerPassword || "Passwords doesn't match",
                     }}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder=" "
-                        className={`${styles.input} ${
-                          registerErrors.repeatPassword ? styles.inputError : ""
-                        }`}
-                        type="password"
-                        id="register-password-repeat"
-                        autoComplete="new-password"
-                      />
-                    )}
+                    type="password"
+                    id="register-password-repeat"
+                    autoComplete="new-password"
+                    label="Repeat password"
+                    containerClassName={styles.nameRegContainer}
                   />
-                  <label
-                    className={styles.label}
-                    htmlFor="register-password-repeat"
-                    id="register-password-repeat-label"
-                  >
-                    Repeat password
-                  </label>
-                  {registerErrors.repeatPassword && (
-                    <span className={styles.errorMessage}>
-                      {registerErrors.repeatPassword.message}
-                    </span>
-                  )}
-                </div>
-                <button type="submit" className={styles.loginButton}>
-                  Go
-                </button>
-              </form>
-              <a className={styles.goBack} onClick={goBack}>
-                Go back
-              </a>
+
+                  <button type="submit" className={styles.loginButton}>
+                    Go
+                  </button>
+                </form>
+                <a className={styles.goBack} onClick={goBack}>
+                  Go back
+                </a>
+              </div>
             </div>
-          </div>
+          </FormProvider>
         </div>
       </div>
     </div>
   );
 };
+
 export default LogSection;

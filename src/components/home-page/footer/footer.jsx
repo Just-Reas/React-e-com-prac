@@ -25,14 +25,12 @@ const Footer = () => {
                     placeholder="Enter your email address"
                     required
                     onFocus={(e) => {
-                      e.target.style.padding = "0.25rem 1rem";
-                      e.target.style.backgroundImage = "unset";
+                      e.target.classList.remove("stayInput");
+                      e.target.classList.add("stayInputFocused");
                     }}
                     onBlur={(e) => {
-                      e.target.style.padding = "0rem";
-                      e.target.style.paddingLeft = "3.25rem";
-                      e.target.style.backgroundImage = "";
-                      e.target.classList.add("stayInput--blurred");
+                      e.target.classList.remove("stayInputFocused");
+                      e.target.classList.add("stayInput");
                     }}
                   />
                   <button className={styles.stayButton}>
