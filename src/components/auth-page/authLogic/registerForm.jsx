@@ -1,16 +1,10 @@
-import styles from "../log.module.scss";
+import styles from "../auth.module.scss";
 import { useForm, FormProvider } from "react-hook-form";
 import InputController from "./controllerSettings";
 import { useRef } from "react";
-export const RegisterForm = () => {
+
+export const RegisterForm = ({ goBack }) => {
   const signUpContainerRef = useRef(null);
-  const goBack = () => {
-    const signContainer = document.getElementById("sign-container");
-    const signInContainer = document.getElementById("signin-container");
-    signContainer.style.display = "flex";
-    signInContainer.style.display = "none";
-    signUpContainerRef.current.style.display = "none";
-  };
   const registerFormMethods = useForm({
     defaultValues: {
       name: "",
