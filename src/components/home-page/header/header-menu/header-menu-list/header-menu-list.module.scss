@@ -45,6 +45,12 @@
 .menuButton {
   border: unset;
   background-color: unset;
+  transform: rotateX(0deg) translateY(0);
+}
+.menuButtonRotate{
+  border: unset;
+  background-color: unset;
+  transform: rotateX(180deg) translateY(-0.125rem);
 }
 
 .menuShop {
@@ -59,7 +65,40 @@
   z-index: 1000;
   border-radius: 1.5rem;
   padding: 1.5rem 2rem;
-  transform: translateY(-1.25rem);
+  transform: translateY(-1.25rem) rotateX(0);
+  &__item {
+    text-align: center;
+    a {
+      text-decoration: unset;
+      color: $white_color;
+      @include sato(bold, 1rem);
+
+      &:hover {
+        color: $sogray_color;
+      }
+      &:active {
+        color: $gray_color;
+      }
+    }
+    &:not(:last-child) {
+      padding-bottom: 1.25rem;
+    }
+  }
+}
+
+.menuShopOpened{
+  display: unset;
+  opacity: 1;
+  margin-top: 2.8rem;
+  transition: all 0.4s ease-in-out;
+  background-color: $black_color;
+  position: absolute;
+  top: 0;
+  left: -80%;
+  z-index: 1000;
+  border-radius: 1.5rem;
+  padding: 1.5rem 2rem;
+  transform:  translateY(-0.125rem);
   &__item {
     text-align: center;
     a {

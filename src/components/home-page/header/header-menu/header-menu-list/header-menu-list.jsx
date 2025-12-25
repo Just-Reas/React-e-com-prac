@@ -15,19 +15,19 @@ const HeaderMenuList = () => {
   const menuRef = useRef();
   const buttonRef = useRef();
 
-  useEffect(() => {
-    if (menuRef.current && buttonRef.current) {
+   useEffect(() => {
+    if(!menuRef.current || !buttonRef.current) return
       if (isMenuOpen) {
-        menuRef.current.style.opacity = "1";
-        menuRef.current.style.transform = "translateY(0)";
-        buttonRef.current.style.transform =
-          "rotateX(180deg) translateY(-0.125rem)";
+        menuRef.current.classList.add(styles.menuShopOpened)
+        menuRef.current.classList.remove(styles.menuShop)
+        buttonRef.current.classList.add(styles.menuButtonRotate)
+        buttonRef.current.classList.remove(styles.menuButton)
       } else {
-        menuRef.current.style.opacity = "0";
-        menuRef.current.style.transform = "translateY(-1.25rem)";
-        buttonRef.current.style.transform = "rotateX(0) translateY(0)";
+        menuRef.current.classList.add(styles.menuShop)
+        menuRef.current.classList.remove(styles.menuShopOpened)
+        buttonRef.current.classList.add(styles.menuButton)
+        buttonRef.current.classList.remove(styles.menuButtonRotate)
       }
-    }
   }, [isMenuOpen]);
 
   useClickOutside(menuRef, () => {
