@@ -1,5 +1,5 @@
 import { useFormContext, Controller } from "react-hook-form";
-import styles from "../log.module.scss";
+import styles from "../auth.module.scss";
 
 const InputController = ({
   name,
